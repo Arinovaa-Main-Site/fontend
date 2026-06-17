@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, ArrowRight , Diamond, Share2  } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Diamond, Share2 } from "lucide-react";
 
 export default function ContactPage() {
     const [form, setForm] = useState({

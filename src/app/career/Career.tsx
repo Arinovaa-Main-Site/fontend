@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, Gauge, GraduationCap, House, TrendingUp ,SearchX } from "lucide-react";
+import { ArrowDown, Gauge, GraduationCap, House, TrendingUp, SearchX } from "lucide-react";
 
 const perks = [
     {
@@ -60,7 +60,7 @@ export default function CareersPage() {
             </section>
 
             {/* ── Culture Section ── */}
-            <section id="culture" className="px-6 md:px-16 py-20">
+            <section  className="px-6 md:px-16 py-20">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     {/* Left — text */}
@@ -91,7 +91,7 @@ export default function CareersPage() {
                     </div>
 
                     {/* Right — images using next/image */}
-                    <div className="grid grid-cols-2 gap-3 h-[520px]">
+                    <div className="grid grid-cols-2 gap-3 h-130">
                         {/* Left tall image */}
                         <div className="relative rounded-xl overflow-hidden h-full">
                             <Image
@@ -182,30 +182,30 @@ export default function CareersPage() {
             </section>  */}
 
             {/* Empty state — shown when no positions available */}
-<div className="flex flex-col items-center justify-center text-center py-20">
-  {/* Icon circle */}
-  <div className="w-20 h-20 rounded-full bg-[#1e2640] flex items-center justify-center mb-8">
-    <SearchX size={32} className="text-blue-300" />
-  </div>
+            <div id="culture" className="flex flex-col items-center justify-center text-center py-20">
+                {/* Icon circle */}
+                <div className="w-20 h-20 rounded-full bg-[#1e2640] flex items-center justify-center mb-8">
+                    <SearchX size={32} className="text-blue-300" />
+                </div>
 
-  <h3 className="text-3xl font-bold text-white mb-4">
-    Quiet on the hiring front.
-  </h3>
-  <p className="text-gray-400 text-base leading-relaxed max-w-lg mb-10">
-    We don&apos;t have any active openings right now, but our team is constantly
-    growing. Check back soon or join our talent network to be the first to know
-    about new opportunities.
-  </p>
+                <h3 className="text-3xl font-bold text-white mb-4">
+                    Quiet on the hiring front.
+                </h3>
+                <p className="text-gray-400 text-base leading-relaxed max-w-lg mb-10">
+                    We don&apos;t have any active openings right now, but our team is constantly
+                    growing. Check back soon or join our talent network to be the first to know
+                    about new opportunities.
+                </p>
 
-  <div className="flex items-center gap-4 flex-wrap justify-center">
-    <button className="px-7 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors cursor-pointer">
-      Join Talent Network
-    </button>
-    <button className="px-7 py-3 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors cursor-pointer bg-transparent">
-      General Application
-    </button>
-  </div>
-</div>
+                <div className="flex items-center gap-4 flex-wrap justify-center">
+                    <button className="px-7 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors cursor-pointer">
+                        Join Talent Network
+                    </button>
+                    <button className="px-7 py-3 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors cursor-pointer bg-transparent">
+                        General Application
+                    </button>
+                </div>
+            </div>
 
         </div>
     );
