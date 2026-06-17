@@ -256,7 +256,7 @@ export default function GeneralApplication() {
           {/* Submit Button */}
           <div className="flex justify-end">
             <button className="px-10 py-3 cursor-pointer rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition">
-              Submit Application →
+              Submit Application → 
             </button>
           </div>
         </div>
