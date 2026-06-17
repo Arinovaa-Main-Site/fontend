@@ -1,4 +1,4 @@
-import Career from "./Career";
+import Career from "@/components/sections/Career/Career";
 
 export default function CareerPage() {
   return (
