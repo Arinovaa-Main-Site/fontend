@@ -184,10 +184,10 @@ export default function ContactPage() {
                             <p className="text-blue-100 text-sm leading-relaxed mb-4 max-w-xs">
                                 Existing clients can access the engineering portal for 24/7 technical assistance.
                             </p>
-                            <button className="flex items-center gap-1.5 text-white text-sm font-medium underline underline-offset-2 cursor-pointer bg-transparent">
+                            {/* <button className="flex items-center gap-1.5 text-white text-sm font-medium underline underline-offset-2 cursor-pointer bg-transparent">
                                 Open Client Portal
                                 <ArrowRight size={14} />
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
