@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import logo from "@/assets/logo/Arinovaa.png";
+import { siteConfig } from "@/config/siteConfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arinovaa Labs",
-  description: "Arinovaa is a cutting-edge AI-powered platform that revolutionizes the way businesses and individuals interact with technology. With its advanced natural language processing capabilities, Arinovaa enables seamless communication and enhances productivity across various domains. Whether you're looking to automate tasks, generate creative content, or gain insights from data, Arinovaa provides a powerful and intuitive solution to meet your needs.",
+  title:  `${siteConfig.title}`,
+  description: `${siteConfig.description}`,
    icons: {
     icon: `${logo.src}`,
   }
