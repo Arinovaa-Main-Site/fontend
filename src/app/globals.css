@@ -5,12 +5,6 @@
   --text-color: #ffffff;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--text-color);
