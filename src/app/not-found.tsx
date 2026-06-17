@@ -21,7 +21,6 @@ export default function NotFound() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 relative overflow-hidden">
-
         {/* Floating terminal card illustration */}
         <div className="relative mt-10 mb-6 w-48 h-36 flex items-center justify-center">
           {/* Main card */}
@@ -32,15 +31,31 @@ export default function NotFound() {
           </div>
           {/* Scissors badge top right */}
           <div className="absolute -top-2 right-6 w-8 h-8 rounded-full bg-[#1e2433] border border-white/10 flex items-center justify-center z-10">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2">
-              <circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" />
-              <line x1="20" y1="4" x2="8.12" y2="15.88" /><line x1="14.47" y1="14.48" x2="20" y2="20" />
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#9ca3af"
+              strokeWidth="2"
+            >
+              <circle cx="6" cy="6" r="3" />
+              <circle cx="6" cy="18" r="3" />
+              <line x1="20" y1="4" x2="8.12" y2="15.88" />
+              <line x1="14.47" y1="14.48" x2="20" y2="20" />
               <line x1="8.12" y1="8.12" x2="12" y2="12" />
             </svg>
           </div>
           {/* Bell badge left */}
           <div className="absolute bottom-2 -left-3 w-8 h-8 rounded-full bg-[#1e2433] border border-orange-500/30 flex items-center justify-center z-10">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f97316"
+              strokeWidth="2"
+            >
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
               <path d="M13.73 21a2 2 0 0 1-3.46 0" />
               <line x1="2" y1="2" x2="22" y2="22" />
@@ -72,8 +87,9 @@ export default function NotFound() {
 
         {/* Description */}
         <p className="text-gray-400 text-center max-w-md text-sm leading-relaxed mt-0 mb-8">
-          It seems the engineering path you followed has reached a dead end. Our systems
-          indicate this endpoint is currently unreachable or does not exist.
+          It seems the engineering path you followed has reached a dead end. Our
+          systems indicate this endpoint is currently unreachable or does not
+          exist.
         </p>
 
         {/* Action buttons */}
@@ -111,7 +127,10 @@ export default function NotFound() {
                 href={href}
                 className="flex flex-col items-center gap-2 bg-[#161b27] hover:bg-[#1e2535] border border-white/10 rounded-lg py-4 px-2 transition-colors group"
               >
-                <Icon size={20} className="text-gray-400 group-hover:text-white transition-colors" />
+                <Icon
+                  size={20}
+                  className="text-gray-400 group-hover:text-white transition-colors"
+                />
                 <span className="text-xs text-gray-400 group-hover:text-white transition-colors">
                   {label}
                 </span>
