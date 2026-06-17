@@ -11,9 +11,12 @@ export default function NotFound() {
         <span className="text-white font-semibold text-xl tracking-tight">
           Arinovaa Labs
         </span>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors cursor-pointer">
+        <Link
+          href="/contact"
+          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors cursor-pointer"
+        >
           Contact Us
-        </button>
+        </Link>
       </nav>
 
       {/* Main Content */}
