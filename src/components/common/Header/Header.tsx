@@ -86,7 +86,7 @@ export default function Header() {
                 pathname === "/about" || pathname.startsWith("/about/");
 
               return (
-                <div key={item.label} className="relative">
+                <div ref={dropdownRef} key={item.label} className="relative">
                   <button
                     type="button"
                     onClick={() => setAboutDesktopOpen((prev) => !prev)}

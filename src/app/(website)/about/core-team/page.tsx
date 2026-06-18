@@ -1,9 +1,12 @@
+import CoreTeam from '@/components/sections/About/CoreTeam'
 import React from 'react'
 
-const CoreTeam = () => {
+const CoreTeams = () => {
   return (
-    <div>CoreTeam</div>
+    <>
+     <CoreTeam />
+    </>
   )
 }
 
-export default CoreTeam
+export default CoreTeams
