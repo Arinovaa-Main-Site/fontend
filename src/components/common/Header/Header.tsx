@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -12,44 +14,117 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#0d1221] border-b border-white/5 px-6 md:px-12 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0d1221]/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
         {/* Logo */}
-        <Link href="/" className="text-white font-bold text-xl tracking-tight">
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-tight text-white md:text-xl"
+        >
           Arinovaa Labs
         </Link>
 
-        {/* Nav links */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map(({ label, href }) => {
             const isActive = pathname === href;
+
             return (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm transition-colors relative ${
+                className={`relative text-sm font-medium transition-all duration-300 ${
                   isActive
-                    ? "text-white font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-white after:rounded-full"
+                    ? "text-white"
                     : "text-gray-400 hover:text-white"
                 }`}
               >
                 {label}
+
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-blue-500 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                />
               </Link>
             );
           })}
         </nav>
 
-        {/* CTA */}
+        {/* Desktop CTA */}
         <Link
           href="/contact"
-          className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+          className="hidden rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg md:block"
         >
           Contact Us
         </Link>
 
+        {/* Mobile Menu Button */}
+        <button
+          aria-label="Toggle Menu"
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white transition-all duration-300 md:hidden"
+        >
+          {isOpen ? (
+            <X
+              size={28}
+              className="rotate-90 transition-transform duration-300"
+            />
+          ) : (
+            <Menu
+              size={28}
+              className="transition-transform duration-300"
+            />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+          isOpen ? "max-h-125 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-white/10 bg-[#0d1221]/95 px-4 py-4 backdrop-blur-md">
+          <nav className="flex flex-col gap-2">
+            {navLinks.map(({ label, href }) => {
+              const isActive = pathname === href;
+
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setIsOpen(false)}
+                  className={`group rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "bg-white/10 text-white shadow-lg"
+                      : "text-gray-300 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span>{label}</span>
+
+                    {/* {isActive && (
+                      <span className="h-2 w-2 rounded-full bg-white" />
+                    )} */}
+                  </div>
+                </Link>
+              );
+            })}
+
+            {/* Mobile CTA */}
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-3 rounded-xl bg-blue-600 py-3 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+            >
+              Contact Us
+            </Link>
+          </nav>
+        </div>
       </div>
     </header>
   );
