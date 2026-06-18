@@ -1,4 +1,4 @@
-import JoinTalent from "@/components/sections/JoinTalent/JoinTalent";
+import JoinTalent from "@/components/sections/Career/JoinTalent/JoinTalent";
 
 export default function JoinTalentPage() {
   return (
