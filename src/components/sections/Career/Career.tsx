@@ -209,13 +209,13 @@ export default function CareersPage() {
 
         <div className="flex items-center gap-4 flex-wrap justify-center">
           <Link
-            href="/joinTalent"
+            href="/career/join-talent"
             className="px-7 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors"
           >
             Join Talent Network
           </Link>
           <Link
-            href="/generalApplication"
+            href="/career/general-application"
             className="px-7 py-3 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors cursor-pointer bg-transparent"
           >
             General Application
