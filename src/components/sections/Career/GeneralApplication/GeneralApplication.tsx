@@ -1,16 +1,30 @@
-"use client"
+"use client";
 
+import { useRouter } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
 export default function GeneralApplication() {
+  const router = useRouter();
 
   const [resume, setResume] = useState<File | null>(null);
 
   return (
     <section className="max-w-7xl mx-auto py-16 px-6">
+
+
+      <button
+        onClick={() => router.push("/career")}
+        className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
+      >
+        <ChevronLeft size={18} />
+        <span className="font-medium">Back to Careers</span>
+      </button>
+
       {/* Header */}
       <div className="text-center mb-10">
+
         <h1 className="text-5xl font-bold text-white">
           General Application
         </h1>
@@ -62,11 +76,11 @@ export default function GeneralApplication() {
               className="h-[350px] w-full object-cover"
             /> */}
 
-            <Image
+            {/* <Image
               src="/office.jpg"
               alt="Office"
               className="h-87.5 w-full object-cover"
-            />
+            /> */}
 
             <div className="absolute inset-0 bg-linear-to-t from-[#030d2b] via-transparent to-transparent" />
 

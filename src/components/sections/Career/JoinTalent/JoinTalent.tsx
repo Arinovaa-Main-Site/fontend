@@ -16,12 +16,13 @@ export default function JoinTalent() {
       {/* Back Button */}
       <div className="absolute top-10 left-10 z-10">
         <button
-          onClick={() => router.back()}
+          onClick={() => router.push("/career")}
           className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
         >
           <ChevronLeft size={18} />
           <span className="font-medium">Back to Careers</span>
         </button>
+
       </div>
 
       {/* Left Glow */}
