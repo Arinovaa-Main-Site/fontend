@@ -93,12 +93,12 @@ export default function ServicesPage() {
                         Partner with us
                         <ArrowRight size={16} />
                     </Link>
-                    <Link
+                    {/* <Link
                         href="/case-studies"
                         className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-medium px-6 py-3.5 rounded-md transition-colors bg-transparent"
                     >
                         View Case Studies
-                    </Link>
+                    </Link> */}
                 </div>
             </section>
 
@@ -147,9 +147,12 @@ export default function ServicesPage() {
                                         ))}
                                     </ul>
                                 </div>
-                                <button className="mt-auto w-full border border-white/10 hover:border-white/30 text-white text-sm font-medium py-2.5 rounded-md transition-colors cursor-pointer bg-transparent">
+                                <Link
+                                    href="/services/learnMore"
+                                    className="mt-auto w-full border border-white/10 hover:border-white/30 text-white text-sm font-medium py-2.5 rounded-md transition-colors bg-transparent text-center block"
+                                >
                                     Learn More
-                                </button>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -175,7 +178,7 @@ export default function ServicesPage() {
                     <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-4 items-stretch">
 
                         {/* Left — image card */}
-                        <div className="relative rounded-xl overflow-hidden min-h-[380px]">
+                        <div className="relative rounded-xl overflow-hidden min-h-95">
                             <Image
                                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80"
                                 alt="Advanced Cloud Integration"
@@ -184,7 +187,7 @@ export default function ServicesPage() {
                                 sizes="(max-width: 768px) 100vw, 60vw"
                             />
                             {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                             {/* Text overlay */}
                             <div className="absolute bottom-0 left-0 p-6">
                                 <h3 className="text-xl font-bold text-white mb-2">
