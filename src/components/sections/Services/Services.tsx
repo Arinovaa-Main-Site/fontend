@@ -93,12 +93,12 @@ export default function ServicesPage() {
                         Partner with us
                         <ArrowRight size={16} />
                     </Link>
-                    <Link
+                    {/* <Link
                         href="/case-studies"
                         className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-sm font-medium px-6 py-3.5 rounded-md transition-colors bg-transparent"
                     >
                         View Case Studies
-                    </Link>
+                    </Link> */}
                 </div>
             </section>
 
