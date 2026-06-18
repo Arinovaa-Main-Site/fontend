@@ -70,17 +70,13 @@ export default function GeneralApplication() {
           {/* Image Card */}
           <div className="overflow-hidden rounded-2xl border border-white/10 relative">
 
-            {/* <Image
-              src="/office.jpg"
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPJqrd8gQvK9rtzMJ7B7IGNWB3n_xPa2skb1FmLIDxK7JeU55IMAfq1DEgAFwX-fZRJsPDGzXAkwCprdITTW_Cdl1kF3mS0RccTeCBohlR-wQnjqapOXoZdLlBd4qdsX1wRePdRNjv-CFWB77kHt5adVjE2E4j9czMDZhLgeiz_VsZHMXV95eDPeHWcXjIlX-C5-rRyKk1_cp9jxmxc2uARssu3XUDCKEo1dyYGd08KjoQTlHF2QhN4RDXYKOdS5QE4HyqdZNUlaRd"
               alt="Office"
-              className="h-[350px] w-full object-cover"
-            /> */}
-
-            {/* <Image
-              src="/office.jpg"
-              alt="Office"
-              className="h-87.5 w-full object-cover"
-            /> */}
+              width={800}
+              height={350}
+              className=" w-full object-cover"
+            />
 
             <div className="absolute inset-0 bg-linear-to-t from-[#030d2b] via-transparent to-transparent" />
 
