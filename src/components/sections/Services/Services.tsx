@@ -233,7 +233,7 @@ export default function ServicesPage() {
                                 Schedule a Consultation
                             </Link>
                             <Link
-                                href="/careers"
+                                href="/career"
                                 className="px-8 py-3.5 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors bg-transparent"
                             >
                                 Explore Career Openings
