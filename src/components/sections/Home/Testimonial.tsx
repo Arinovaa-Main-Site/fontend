@@ -6,7 +6,7 @@ const testimonialsData = [
   {
     quote:
       "Arinovaa Labs didn't just write code; they redefined our entire technical architecture. Their senior-level insight was invaluable for our Series B expansion.",
-    name: "Sarah Chen",
+    name: "Ashleen Sahani",
     role: "CTO, NexusSystems",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
@@ -14,7 +14,7 @@ const testimonialsData = [
   {
     quote:
       "Their expertise in SaaS scaling saved us months of rework. They are the most technically proficient engineering team we've ever partnered with.",
-    name: "Marcus Rodriguez",
+    name: "Vishal Singh",
     role: "Founder, CloudFlow",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
