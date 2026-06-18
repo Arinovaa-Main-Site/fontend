@@ -1,9 +1,11 @@
-import React from 'react'
+import Awards from "@/components/sections/About/Awards";
 
-const Awards = () => {
+const AwardsData = () => {
   return (
-    <div>Awards</div>
+    <>
+     <Awards />
+    </>
   )
 }
 
-export default Awards
+export default AwardsData;
