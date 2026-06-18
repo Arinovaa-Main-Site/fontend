@@ -1,4 +1,4 @@
-import GeneralApplication from "@/components/sections/GeneralApplication/GeneralApplication";
+import GeneralApplication from "@/components/sections/Career/GeneralApplication/GeneralApplication";
 
 export default function GeneralApplicationPage() {
   return (
