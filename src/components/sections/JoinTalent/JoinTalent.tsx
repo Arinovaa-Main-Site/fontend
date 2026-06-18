@@ -1,20 +1,40 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
+
 export default function JoinTalent() {
+
+  const router = useRouter();
+
+
   const interests = ["Frontend", "Backend", "DevOps", "AI/ML", "Cloud"];
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#030d2b] flex items-center justify-center px-6 py-20">
 
+      {/* Back Button */}
+      <div className="absolute top-10 left-10 z-10">
+        <button
+          onClick={() => router.back()}
+          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
+        >
+          <ChevronLeft size={18} />
+          <span className="font-medium">Back to Careers</span>
+        </button>
+      </div>
+
       {/* Left Glow */}
-      <div className="absolute -right-62.5 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-400/20 blur-[140px]" />
+      <div className="absolute -right-62.5 top-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-blue-400/20 blur-[140px]" />
 
       {/* Right Glow */}
-      <div className="absolute -right-62.5 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-white/15 blur-[150px]" />
+      <div className="absolute -right-62.5 top-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-white/15 blur-[150px]" />
 
       {/* Bottom Glow */}
-      <div className="absolute -bottom-50 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/20 blur-[180px]" />
+      <div className="absolute -bottom-50 left-1/2 -translate-x-1/2 w-150h-75 bg-blue-500/20 blur-[180px]" />
 
       {/* Card */}
-      <div className="relative w-full max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-br from-[#0d1837]/95 to-[#111b3f]/90 p-12 shadow-2xl">
+      <div className="relative w-full max-w-3xl rounded-3xl border border-white/10 bg-linear-to-br from-[#0d1837]/95 to-[#111b3f]/90 p-12 shadow-2xl">
 
         {/* Badge */}
         <div className="flex justify-center">

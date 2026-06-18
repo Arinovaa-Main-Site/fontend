@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function GeneralApplication() {
 
@@ -55,10 +56,16 @@ export default function GeneralApplication() {
           {/* Image Card */}
           <div className="overflow-hidden rounded-2xl border border-white/10 relative">
 
-            <img
+            {/* <Image
               src="/office.jpg"
               alt="Office"
               className="h-[350px] w-full object-cover"
+            /> */}
+
+            <Image
+              src="/office.jpg"
+              alt="Office"
+              className="h-87.5 w-full object-cover"
             />
 
             <div className="absolute inset-0 bg-linear-to-t from-[#030d2b] via-transparent to-transparent" />
@@ -256,7 +263,7 @@ export default function GeneralApplication() {
           {/* Submit Button */}
           <div className="flex justify-end">
             <button className="px-10 py-3 cursor-pointer rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition">
-              Submit Application → 
+              Submit Application →
             </button>
           </div>
         </div>
