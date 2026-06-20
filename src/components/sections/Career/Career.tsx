@@ -67,8 +67,8 @@ export default function CareersPage() {
       </section>
 
       {/* ── Culture Section ── */}
-      <section className="px-6 md:px-16 py-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="px-6 py-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left — text */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
@@ -137,62 +137,11 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* {/* ── Open Positions ── */}
-      {/* <section id="openings" className="px-6 md:px-16 py-16">
-                <div className="max-w-7xl mx-auto">
-
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
-                        <div>
-                            <h2 className="text-3xl font-bold text-white mb-1">Open Positions</h2>
-                            <p className="text-gray-400 text-sm">
-                                Find your next technical challenge across our core domains.
-                            </p>
-                        </div>
-
-                        <div className="flex items-center gap-2 bg-[#141929] border border-white/10 rounded-full px-2 py-1.5">
-                            {["All Roles", "Engineering", "AI & Data", "Product"].map((tab) => (
-                                <button
-                                    key={tab}
-                                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${tab === "All Roles"
-                                            ? "bg-[#1e2f5e] text-blue-200"
-                                            : "text-gray-400 hover:text-white"
-                                        }`}
-                                >
-                                    {tab}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                </div>
-            </section> */}
-
-      {/* ── Don't see the right role ── */}
-
-      {/* <section className="px-6 md:px-16 pb-20">
-                <div className="max-w-7xl mx-auto">
-                    <div className="border border-white/10 rounded-2xl px-8 py-16 flex flex-col items-center text-center bg-gradient-to-b from-[#141929] to-[#0d1221]">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                            Don&apos;t see the right role?
-                        </h2>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-lg mb-10">
-                            We&apos;re always looking for exceptional talent. If you believe you&apos;d be a
-                            great fit for Arinovaa Labs, send us your portfolio and a brief pitch.
-                        </p>
-                        <div className="flex items-center gap-4 flex-wrap justify-center">
-                            <button className="px-7 py-3 rounded-lg bg-[#B4C5FF] hover:bg-[#253158] text-[#002A78] text-sm font-medium transition-colors cursor-pointer border border-white/10">
-                                General Application
-                            </button>
-                            <button className="px-7 py-3 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors cursor-pointer bg-transparent">
-                                Join Talent Network
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>  */}
-
       {/* Empty state — shown when no positions available */}
-      <div id="culture" className="flex flex-col items-center justify-center text-center py-20">
+      <div
+        id="culture"
+        className="flex flex-col items-center justify-center text-center py-20"
+      >
         {/* Icon circle */}
         <div className="w-20 h-20 rounded-full bg-[#1e2640] flex items-center justify-center mb-8">
           <SearchX size={32} className="text-blue-300" />

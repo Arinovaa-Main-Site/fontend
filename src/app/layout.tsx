@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:  `${siteConfig.title}`,
+  title: `${siteConfig.title}`,
   description: `${siteConfig.description}`,
-   icons: {
+  icons: {
     icon: `${logo.src}`,
-  }
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased max-w-[1920px] mx-auto`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
