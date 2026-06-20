@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+import logo from "../../../assets/logo/Arinovaa_logofive.png";
 
 type NavChild = {
   label: string;
@@ -55,11 +57,16 @@ export default function Header() {
           href="/"
           className="text-lg font-bold tracking-tight text-white md:text-xl"
         >
-          Arinovaa Labs
+          <Image
+            src={logo}
+            alt="Arinovaa Labs"
+            width={200}
+            height={80}
+          />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 md:flex text-md">
           {navLinks.map((item) => {
             if (hasChildren(item)) {
               const isActive =
@@ -129,7 +136,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm font-medium transition-all duration-300 ${
+                className={`relative text-md font-medium transition-all duration-300 ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`}
               >
