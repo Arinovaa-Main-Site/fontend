@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
+import logo from "../../../assets/logo/Arinovaa_logofive.png";
 
 const socialLinks = [
   {
@@ -41,11 +43,13 @@ export default function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h2 className="text-4xl font-bold leading-none text-[#B7C5FF] md:text-5xl">
-              Arinovaa
-              <br />
-              Labs
-            </h2>
+            {/* Logo */}
+            <Link
+              href="/"
+              className="text-lg font-bold tracking-tight text-white md:text-xl"
+            >
+              <Image src={logo} alt="Arinovaa Labs" width={200} height={80} />
+            </Link>
 
             <p className="mt-6 max-w-xs text-sm leading-7 text-gray-300">
               Engineering excellence for the modern digital era.
