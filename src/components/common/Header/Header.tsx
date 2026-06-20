@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 type NavChild = {
   label: string;
@@ -46,26 +46,6 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [aboutDesktopOpen, setAboutDesktopOpen] = useState(false);
-
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setAboutDesktopOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0d1221]/95 backdrop-blur-md">
@@ -86,10 +66,9 @@ export default function Header() {
                 pathname === "/about" || pathname.startsWith("/about/");
 
               return (
-                <div ref={dropdownRef} key={item.label} className="relative">
+                <div key={item.label} className="group relative">
                   <button
                     type="button"
-                    onClick={() => setAboutDesktopOpen((prev) => !prev)}
                     className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 ${
                       isActive ? "text-white" : "text-gray-400 hover:text-white"
                     }`}
@@ -98,9 +77,7 @@ export default function Header() {
 
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-300 ${
-                        aboutDesktopOpen ? "rotate-180" : ""
-                      }`}
+                      className="transition-transform duration-300 group-hover:rotate-180"
                     />
                   </button>
 
@@ -112,29 +89,30 @@ export default function Header() {
 
                   {/* Desktop Dropdown */}
                   <div
-                    className={`absolute left-0 top-full mt-4 w-72 rounded-2xl border border-white/10 bg-[#111827]/95 p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ${
-                      aboutDesktopOpen
-                        ? "visible translate-y-0 opacity-100"
-                        : "invisible -translate-y-2 opacity-0"
-                    }`}
+                    className="
+                      invisible absolute left-0 top-full z-50 mt-3 w-72
+                      translate-y-2 opacity-0
+                      rounded-2xl border border-white/10
+                      bg-[#111827]/95 p-3 shadow-2xl
+                      backdrop-blur-xl
+                      transition-all duration-200
+                      group-hover:visible
+                      group-hover:translate-y-0
+                      group-hover:opacity-100
+                    "
                   >
                     <div className="flex flex-col gap-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          onClick={() => {
-                            setAboutDesktopOpen(false);
-                            setAboutOpen(false);
-                            setIsOpen(false);
-                          }}
-                          className={`group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
+                          className={`group/item flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-300 ${
                             pathname === child.href
                               ? "border border-blue-500/20 bg-linear-to-r from-blue-500/20 to-blue-600/10 text-white"
                               : "text-gray-300 hover:bg-white/10 hover:text-white"
                           }`}
                         >
-                          <span className="transition-transform duration-300 group-hover:translate-x-1">
+                          <span className="transition-transform duration-300 group-hover/item:translate-x-1">
                             {child.label}
                           </span>
                         </Link>
@@ -179,7 +157,7 @@ export default function Header() {
         <button
           type="button"
           aria-label="Toggle Menu"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen((prev) => !prev)}
           className="text-white md:hidden"
         >
           {isOpen ? (
@@ -274,7 +252,6 @@ export default function Header() {
               );
             })}
 
-            {/* Mobile CTA */}
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
