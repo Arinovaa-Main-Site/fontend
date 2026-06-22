@@ -2,13 +2,105 @@
 
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function JoinTalent() {
+
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    interests: [] as string[],
+  });
 
   const router = useRouter();
 
 
   const interests = ["Frontend", "Backend", "DevOps", "AI/ML", "Cloud"];
+
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+
+  const handleInterestChange = (interest: string) => {
+    setForm((prev) => ({
+      ...prev,
+      interests: prev.interests.includes(interest)
+        ? prev.interests.filter((i) => i !== interest)
+        : [...prev.interests, interest],
+    }));
+  };
+
+
+  const handleSubmit = async () => {
+
+    if (!form.fullName.trim()) {
+      toast.error("Please enter your full name");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    if (form.interests.length === 0) {
+      toast.error("Please select at least one area of interest");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        "http://localhost:8080/api/v1/join-talent/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      toast.success("Successfully joined the talent network!");
+
+      setForm({
+        fullName: "",
+        email: "",
+        interests: [],
+      });
+
+    } catch (error) {
+
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong"
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
+
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#030d2b] flex items-center justify-center px-6 py-20">
@@ -71,6 +163,9 @@ export default function JoinTalent() {
 
               <input
                 type="text"
+                name="fullName"
+                value={form.fullName}
+                onChange={handleInputChange}
                 placeholder="John Doe"
                 className="w-full rounded-xl border border-white/10 bg-[#172447]/60 px-4 py-3 text-white outline-none transition focus:border-blue-500"
               />
@@ -83,6 +178,9 @@ export default function JoinTalent() {
 
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleInputChange}
                 placeholder="john@example.com"
                 className="w-full rounded-xl border border-white/10 bg-[#172447]/60 px-4 py-3 text-white outline-none transition focus:border-blue-500"
               />
@@ -104,6 +202,8 @@ export default function JoinTalent() {
                 >
                   <input
                     type="checkbox"
+                    checked={form.interests.includes(item)}
+                    onChange={() => handleInterestChange(item)}
                     className="h-4 w-4 accent-blue-500"
                   />
                   <span className="text-gray-300">{item}</span>
@@ -113,8 +213,16 @@ export default function JoinTalent() {
           </div>
 
           {/* Button */}
-          <button className="mt-10 w-full rounded-xl bg-blue-600 py-4 font-medium text-white transition hover:bg-blue-700">
+          {/* <button className="mt-10 w-full rounded-xl bg-blue-600 py-4 font-medium text-white transition hover:bg-blue-700">
             Keep me updated →
+          </button> */}
+
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="mt-10 w-full rounded-xl bg-blue-600 py-4 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50 cursor-pointer"
+          >
+            {loading ? "Submitting..." : "Keep me updated →"}
           </button>
 
           {/* Footer Text */}
