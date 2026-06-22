@@ -1,24 +1,26 @@
 import Image from "next/image";
+import founder from "@/assets/images/founder.png";
+import cto from "@/assets/images/cto.jpeg";
 
+// Data.
 const teamMembers = [
   {
     name: "Dravinanshu Mishra",
     role: "Founder & Chairman",
     expertise: [
-      "Product Strategy",
-      "Full-Stack Development",
-      "React / Next.js Architecture",
+      "Product Vision & Strategy",
+      "Full-Stack Engineering",
+      "Technology Leadership",
     ],
-    image:
-      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80",
+    image: founder,
   },
   {
     name: "Biplab Biswas",
     role: "Co-Founder & CEO",
     expertise: [
-      "Business Development",
-      "Enterprise Solutions",
-      "Operations & Growth",
+      "Business Strategy & Growth",
+      "Enterprise Partnerships",
+      "Operations Leadership",
     ],
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
@@ -27,12 +29,11 @@ const teamMembers = [
     name: "Prashant Sharma",
     role: "Co-Founder & CTO",
     expertise: [
-      ".NET Architecture",
-      "Software Engineering",
-      "Technology Leadership",
+      "Software Architecture",
+      "Engineering Excellence",
+      "Innovation & Technology Strategy",
     ],
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
+    image: cto,
   },
 ];
 
@@ -61,8 +62,7 @@ const leadershipQuotes = [
       "We don't build software for today. We engineer systems that remain scalable, secure, and adaptable for the next decade.",
     name: "Dravinanshu Mishra",
     designation: "Founder & Chairman",
-    image:
-      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&q=80",
+    image: founder,
   },
   {
     quote:
@@ -77,8 +77,7 @@ const leadershipQuotes = [
       "Technology is most powerful when it is built on strong architecture, clean engineering principles, and a vision for long-term innovation.",
     name: "Prashant Sharma",
     designation: "Co-Founder & CTO",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
+    image: cto,
   },
 ];
 
@@ -193,9 +192,7 @@ const CoreTeam = () => {
                 key={item.name}
                 className="rounded-3xl border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] p-8"
               >
-                <span className="text-6xl font-bold leading-none text-[#0E6AFA]">
-                  
-                </span>
+                <span className="text-6xl font-bold leading-none text-[#0E6AFA]"></span>
 
                 <p className="mt-4 min-h-45 italic leading-8 text-slate-300">
                   {item.quote}
@@ -213,9 +210,7 @@ const CoreTeam = () => {
                   <div>
                     <h4 className="font-semibold">{item.name}</h4>
 
-                    <p className="text-sm text-slate-400">
-                      {item.designation}
-                    </p>
+                    <p className="text-sm text-slate-400">{item.designation}</p>
                   </div>
                 </div>
               </div>
@@ -225,9 +220,7 @@ const CoreTeam = () => {
 
         {/* CTA */}
         <div className="mt-24 rounded-3xl border border-white/10 bg-linear-to-r from-[#08112F] to-[#10204F] p-10 text-center">
-          <h3 className="text-3xl font-bold">
-            Building the Future Together
-          </h3>
+          <h3 className="text-3xl font-bold">Building the Future Together</h3>
 
           <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-400">
             Our multidisciplinary team combines deep technical expertise,
