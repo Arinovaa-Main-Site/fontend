@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight, Diamond, Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -18,8 +20,81 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", form);
+  const handleSubmit = async () => {
+
+    if (!form.name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    if (!form.phone.trim()) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!form.company.trim()) {
+      toast.error("Please enter your company name");
+      return;
+    }
+
+    if (!form.message.trim()) {
+      toast.error("Please enter your message");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        "http://localhost:8080/api/v1/contact-us/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error);
+      }
+
+      toast.success("Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+      });
+
+    } catch (error) {
+
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong"
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
   };
 
   return (
@@ -112,13 +187,24 @@ export default function ContactPage() {
             </div>
 
             {/* Submit */}
-            <button
+            {/* <button
               onClick={handleSubmit}
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-md transition-colors cursor-pointer"
             >
               Send Message
               <ArrowRight size={15} />
+            </button> */}
+
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium px-5 py-2.5 rounded-md transition-colors cursor-pointer"
+            >
+              {loading ? "Sending..." : "Send Message"}
+
+              {!loading && <ArrowRight size={15} />}
             </button>
+
           </div>
 
           {/* Right column */}

@@ -4,14 +4,135 @@ import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export default function GeneralApplication() {
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    location: "",
+    linkedInUrl: "",
+    portfolioUrl: "",
+    primaryStack: "",
+    yearsOfExperience: "",
+    skills: [] as string[],
+    bio: "",
+  });
+
   const router = useRouter();
 
   const [resume, setResume] = useState<File | null>(null);
 
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async () => {
+    if (!form.fullName.trim()) {
+      toast.error("Please enter your full name");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    if (!form.phone.trim()) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!form.primaryStack) {
+      toast.error("Please select your technology stack");
+      return;
+    }
+
+    if (!resume) {
+      toast.error("Please upload your resume");
+      return;
+    }
+
+    if (!form.bio.trim()) {
+      toast.error("Please provide a short bio");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        "http://localhost:8080/api/v1/applications/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...form,
+            resume: {
+              fileName: resume.name,
+              fileSize: resume.size,
+            },
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      toast.success("Application submitted successfully!");
+
+      setForm({
+        fullName: "",
+        email: "",
+        phone: "",
+        location: "",
+        linkedInUrl: "",
+        portfolioUrl: "",
+        primaryStack: "",
+        yearsOfExperience: "",
+        skills: [],
+        bio: "",
+      });
+
+      setResume(null);
+
+    } catch (error) {
+
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong"
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
+
   return (
-    <section className="max-w-7xl mx-auto py-16 px-6">
+    <section className="max-w-7xl bg-[#030d2b] mx-auto py-16 px-6">
 
 
       <button
@@ -103,36 +224,54 @@ export default function GeneralApplication() {
             <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="text"
+                name="fullName"
+                value={form.fullName}
+                onChange={handleChange}
                 placeholder="Full Name"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
 
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Email Address"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
 
               <input
                 type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
                 placeholder="Phone Number"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
 
               <input
                 type="text"
+                name="location"
+                value={form.location}
+                onChange={handleChange}
                 placeholder="Location (City, Country)"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
 
               <input
                 type="text"
+                name="linkedInUrl"
+                value={form.linkedInUrl}
+                onChange={handleChange}
                 placeholder="LinkedIn URL"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
 
               <input
                 type="text"
+                name="portfolioUrl"
+                value={form.portfolioUrl}
+                onChange={handleChange}
                 placeholder="GitHub / Portfolio URL"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
@@ -146,7 +285,12 @@ export default function GeneralApplication() {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <select className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white">
+              <select
+                name="primaryStack"
+                value={form.primaryStack}
+                onChange={handleChange}
+                className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white">
+
                 <option>Select Primary Technology Stack</option>
                 <option>Frontend</option>
                 <option>Backend</option>
@@ -157,6 +301,9 @@ export default function GeneralApplication() {
 
               <input
                 type="number"
+                name="yearsOfExperience"
+                value={form.yearsOfExperience}
+                onChange={handleChange}
                 placeholder="Years of Experience"
                 className="bg-[#0B1220] border border-white/10 rounded-xl px-4 py-3 text-white outline-none"
               />
@@ -166,8 +313,20 @@ export default function GeneralApplication() {
               {["React", "Node.js", "TypeScript", "Next.js", "Python"].map(
                 (skill) => (
                   <button
+                    type="button"
                     key={skill}
-                    className="px-4 py-2 rounded-full border border-white/10 bg-[#0B1220] text-gray-300"
+                    onClick={() =>
+                      setForm((prev) => ({
+                        ...prev,
+                        skills: prev.skills.includes(skill)
+                          ? prev.skills.filter((s) => s !== skill)
+                          : [...prev.skills, skill],
+                      }))
+                    }
+                    className={`px-4 py-2 rounded-full border ${form.skills.includes(skill)
+                      ? "bg-blue-600 border-blue-600"
+                      : "bg-[#0B1220] border-white/10"
+                      } text-gray-300`}
                   >
                     {skill}
                   </button>
@@ -176,16 +335,6 @@ export default function GeneralApplication() {
             </div>
           </div>
 
-          {/* Resume */}
-          {/* <div className="bg-[#111827] border border-white/10 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-white mb-8">
-              Resume / CV
-            </h2>
-
-            <div className="h-56 border border-dashed border-white/20 rounded-2xl flex items-center justify-center text-gray-400">
-              Drag and drop your resume or browse files
-            </div>
-          </div> */}
 
           <div className="bg-[#111827] border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-white mb-8">
@@ -265,6 +414,9 @@ export default function GeneralApplication() {
 
             <textarea
               rows={6}
+              name="bio"
+              value={form.bio}
+              onChange={handleChange}
               placeholder="Describe your technical journey, interests, and the type of roles you're looking for..."
               className="w-full bg-[#0B1220] border border-white/10 rounded-xl px-4 py-4 text-white resize-none outline-none"
             />
@@ -272,9 +424,17 @@ export default function GeneralApplication() {
 
           {/* Submit Button */}
           <div className="flex justify-end">
-            <button className="px-10 py-3 cursor-pointer rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition">
+            {/* <button className="px-10 py-3 cursor-pointer rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition">
               Submit Application →
+            </button> */}
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className="px-10 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium transition cursor-pointer"
+            >
+              {loading ? "Submitting..." : "Submit Application →"}
             </button>
+
           </div>
         </div>
       </div>
