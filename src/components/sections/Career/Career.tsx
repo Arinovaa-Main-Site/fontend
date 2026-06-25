@@ -35,7 +35,7 @@ const perks = [
 
 export default function CareersPage() {
   return (
-    <div className="min-h-screen bg-[#0d1221] text-white font-sans">
+    <div className="min-h-screen bg-[#020f34] text-white font-sans">
       {/* ── Hero Section ── */}
       <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
         <div className="border border-white/20 rounded-full px-4 py-1.5 mb-8">
