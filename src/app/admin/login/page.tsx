@@ -38,11 +38,11 @@ export default function Login() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020B3D] px-5 py-10">
       {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[60px_60px]" />
 
       {/* Glow Effects */}
-      <div className="absolute left-0 top-0 h-[350px] w-[350px] rounded-full bg-blue-600/20 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 h-[350px] w-[350px] rounded-full bg-cyan-500/10 blur-[120px]" />
+      <div className="absolute left-0 top-0 h-87.5 w-87.5 rounded-full bg-blue-600/20 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 h-87.5 w-87.5 rounded-full bg-cyan-500/10 blur-[120px]" />
 
       <div className="relative z-10 w-full max-w-lg">
         {/* Back Button */}
@@ -55,9 +55,9 @@ export default function Login() {
         </Link>
 
         {/* Card */}
-        <div className="rounded-[32px] border border-white/10 bg-white/[0.04] p-8  sm:p-10">
+        <div className="rounded-4xl border border-white/10 bg-white/4 p-8  sm:p-10">
           {/* Logo */}
-          
+
           {/* Heading */}
           <div className="text-center">
             <h1 className="text-3xl font-bold text-white sm:text-4xl">
@@ -77,10 +77,7 @@ export default function Login() {
           </div>
 
           {/* Form */}
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-8 space-y-5"
-          >
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
             {/* Email */}
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-300">
@@ -133,8 +130,7 @@ export default function Login() {
                     required: "Password is required",
                     minLength: {
                       value: 6,
-                      message:
-                        "Password must be at least 6 characters",
+                      message: "Password must be at least 6 characters",
                     },
                   })}
                   className="w-full rounded-xl border border-slate-700 bg-slate-900/50 py-3 pl-11 pr-12 text-white outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
@@ -142,16 +138,10 @@ export default function Login() {
 
                 <button
                   type="button"
-                  onClick={() =>
-                    setShowPassword(!showPassword)
-                  }
+                  onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
                 >
-                  {showPassword ? (
-                    <EyeOff size={18} />
-                  ) : (
-                    <Eye size={18} />
-                  )}
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
 
@@ -165,17 +155,13 @@ export default function Login() {
             {/* Remember Me */}
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 text-sm text-slate-300">
-                <input
-                  type="checkbox"
-                  className="rounded border-slate-600"
-                />
+                <input type="checkbox" className="rounded border-slate-600" />
                 Remember me
               </label>
 
               <Link
                 href="/admin/forget-password"
                 className="text-sm text-blue-400 transition hover:text-blue-300"
-                
               >
                 Forgot Password?
               </Link>
@@ -187,15 +173,12 @@ export default function Login() {
               disabled={isSubmitting}
               className="group relative w-full overflow-hidden rounded-xl bg-blue-600 py-3 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <span className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               <span className="relative flex items-center justify-center gap-2">
                 {isSubmitting ? (
                   <>
-                    <Loader2
-                      size={18}
-                      className="animate-spin"
-                    />
+                    <Loader2 size={18} className="animate-spin" />
                     Signing In...
                   </>
                 ) : (
