@@ -5,14 +5,14 @@ export default function Admin() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#020B3D]">
       {/* Background Glow */}
-      <div className="absolute left-0 top-0 h-[300px] w-[300px] rounded-full bg-blue-600/20 blur-[120px] sm:h-[500px] sm:w-[500px]" />
-      <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-cyan-500/10 blur-[120px] sm:h-[500px] sm:w-[500px]" />
+      <div className="absolute left-0 top-0 h-75 w-75 rounded-full bg-blue-600/20 blur-[120px] sm:h-125 sm:w-125" />
+      <div className="absolute bottom-0 right-0 h-75 w-75 rounded-full bg-cyan-500/10 blur-[120px] sm:h-125 sm:w-125" />
 
       {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[60px_60px]" />
 
       <div className="relative z-10 flex min-h-screen items-center py-16 lg:py-0">
-        <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-12 px-5 sm:px-6 lg:flex-row lg:items-center lg:gap-20">
+        <div className="mx-auto flex w-full max-w-350 flex-col gap-12 px-5 sm:px-6 lg:flex-row lg:items-center lg:gap-20">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs text-blue-300 sm:text-sm">
@@ -22,7 +22,7 @@ export default function Admin() {
 
             <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Welcome to
-              <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
                 Arinovaa Admin
               </span>
             </h1>
@@ -55,7 +55,7 @@ export default function Admin() {
 
           {/* Right Dashboard Preview */}
           <div className="w-full flex-1">
-            <div className="rounded-[24px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-6 lg:p-8">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-4xl sm:p-6 lg:p-8">
               {/* Browser Header */}
               <div className="mb-8 flex items-center justify-between">
                 <div className="flex gap-2">
@@ -96,26 +96,13 @@ export default function Admin() {
                 </div>
 
                 <div className="h-3 rounded-full bg-slate-700">
-                  <div className="h-full w-[90%] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" />
+                  <div className="h-full w-[90%] rounded-full bg-linear-to-r from-blue-500 to-cyan-400" />
                 </div>
 
                 <div className="mt-8 flex items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/5 py-12 sm:py-16 lg:py-20">
                   <span className="text-center text-base font-medium text-slate-200 sm:text-lg">
                     System Access Authorized
                   </span>
-                </div>
-              </div>
-
-              {/* Bottom Cards */}
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="rounded-xl border border-white/5 bg-[#081A57] p-4">
-                  <p className="text-xs text-slate-400">Clients</p>
-                  <h4 className="mt-2 text-xl font-bold text-white">320+</h4>
-                </div>
-
-                <div className="rounded-xl border border-white/5 bg-[#081A57] p-4">
-                  <p className="text-xs text-slate-400">Services</p>
-                  <h4 className="mt-2 text-xl font-bold text-white">18+</h4>
                 </div>
               </div>
             </div>
