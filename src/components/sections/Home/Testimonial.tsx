@@ -1,33 +1,10 @@
 import Link from "next/link";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import { TestimonialItem } from "@/types/testimonalType";
 
-const testimonialsData = [
-  {
-    quote:
-      "Arinovaa Labs didn't just write code; they redefined our entire technical architecture. Their senior-level insight was invaluable for our Series B expansion.",
-    name: "Ashleen Sahani",
-    role: "CTO, NexusSystems",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-  },
-  {
-    quote:
-      "Their expertise in SaaS scaling saved us months of rework. They are the most technically proficient engineering team we've ever partnered with.",
-    name: "Vishal Singh",
-    role: "Founder, CloudFlow",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-  },
-  {
-    quote:
-      "The transparency in their agile process is unmatched. We always knew exactly where the project stood, and the results were flawless.",
-    name: "Jessica Wright",
-    role: "VP Engineering, DataBloom",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-  },
-];
+// DATA HERE.
+const testimonialsData: TestimonialItem[] = [];
 
 const Testimonial = () => {
   return (
@@ -42,7 +19,7 @@ const Testimonial = () => {
 
         {/* Testimonials */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonialsData.map((item) => (
+          {testimonialsData.length > 0 ? testimonialsData.map((item) => (
             <div
               key={item.name}
               className="rounded-2xl border border-white/10 bg-linear-to-br from-[#111D46] to-[#0C1638] p-6 transition-all duration-300 hover:border-blue-500/20"
@@ -66,7 +43,7 @@ const Testimonial = () => {
               {/* User */}
               <div className="mt-6 flex items-center gap-3">
                 <Image
-                  src={item.avatar}
+                  src={item.profile}
                   alt={item.name}
                   width={40}
                   height={40}
@@ -82,7 +59,7 @@ const Testimonial = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )) : ""}
         </div>
 
         {/* CTA Section */}
