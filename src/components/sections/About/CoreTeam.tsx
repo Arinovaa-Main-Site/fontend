@@ -1,54 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Mail, Quote, Sparkles, Star } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import founder from "@/assets/images/founder.png";
 import cto from "@/assets/images/cto.jpeg";
+import { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
 
-// Data.
-const teamMembers = [
-  {
-    name: "Dravinanshu Mishra",
-    role: "Founder & Chairman",
-    expertise: [
-      "Product Vision & Strategy",
-      "Full-Stack Engineering",
-      "Technology Leadership",
-    ],
-    image: founder,
-  },
-  {
-    name: "Biplab Biswas",
-    role: "Co-Founder & CEO",
-    expertise: [
-      "Business Strategy & Growth",
-      "Enterprise Partnerships",
-      "Operations Leadership",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
-  },
-  {
-    name: "Prashant Sharma",
-    role: "Co-Founder & CTO",
-    expertise: [
-      "Software Architecture",
-      "Engineering Excellence",
-      "Innovation & Technology Strategy",
-    ],
-    image: cto,
-  },
-];
-
-const stats = [
-  {
-    value: "50+",
-    label: "Engineering Experts",
-  },
+// STATES DATA.
+const stats: Stat[] = [
   {
     value: "100+",
     label: "Projects Delivered",
   },
   {
+    value: "50+",
+    label: "Global Clients",
+  },
+  {
     value: "15+",
-    label: "Years Experience",
+    label: "Technology Experts",
   },
   {
     value: "98%",
@@ -56,17 +26,110 @@ const stats = [
   },
 ];
 
-const leadershipQuotes = [
+// FOUNDERS AND CO-FOUNDERS.
+const teamMembers: TeamMember[] = [
+  {
+    name: "Dravinanshu Mishra",
+    role: "Founder & Chairman",
+    bio: "Visionary entrepreneur focused on building scalable digital products and empowering businesses through innovative technology.",
+    experience: "3+ Years",
+    image: founder,
+    linkedin: "#",
+    github: "#",
+    email: "mailto:contact@arinovaa.com",
+    expertise: [
+      "Product Strategy",
+      "Full Stack Development",
+      "AI Solutions",
+      "Cloud Architecture",
+    ],
+  },
+  {
+    name: "Biplab Biswas",
+    role: "Co-Founder & CEO",
+    bio: "Driving business growth through strategic partnerships, enterprise transformation, and customer-centric innovation.",
+    experience: "3+ Years",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
+    linkedin: "#",
+    email: "mailto:contact@arinovaa.com",
+    expertise: [
+      "Business Strategy",
+      "Leadership",
+      "Operations",
+      "Enterprise Sales",
+    ],
+  },
+  {
+    name: "Prashant Sharma",
+    role: "Co-Founder & CTO",
+    bio: "Technology architect passionate about designing secure, scalable, and future-ready enterprise platforms.",
+    experience: "20+ Years",
+    image: cto,
+    linkedin: "#",
+    github: "#",
+    email: "mailto:contact@arinovaa.com",
+    expertise: [
+      "Software Architecture",
+      ".NET",
+      "Cloud Infrastructure",
+      "Engineering Leadership",
+    ],
+  },
+];
+
+// OUR CORE DEVELOPERS TEAMS.
+const developers: TeamMember[] = [
+  {
+    name: "Ganesh Mishra",
+    role: "Senior Full Stack Developer",
+    bio: "Expert in building enterprise-grade web applications using React, Next.js, Node.js, and Laravel.",
+    experience: "5+ Years",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
+    expertise: ["Next.js", "React", "Laravel", "TypeScript"],
+  },
+  {
+    name: "Nishant Kumar",
+    role: "Frontend Engineer",
+    bio: "Focused on creating beautiful, responsive, and high-performance user interfaces.",
+    experience: "4+ Years",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
+    expertise: ["React", "Tailwind CSS", "Figma", "Animations"],
+  },
+  {
+    name: "Rohit Sharma",
+    role: "Backend Engineer",
+    bio: "Specialized in APIs, scalable backend systems, databases, and cloud-native applications.",
+    experience: "6+ Years",
+    image:
+      "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=800&q=80",
+    expertise: ["Node.js", "Laravel", "PostgreSQL", "AWS"],
+  },
+  {
+    name: "Ganesh Verma",
+    role: "DevOps Engineer",
+    bio: "Experienced in cloud infrastructure, CI/CD pipelines, Docker, Kubernetes, and AWS deployments.",
+    experience: "5+ Years",
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80",
+    expertise: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+  },
+];
+
+// TOP LEADERSHIP VOICES.
+const leadershipQuotes: QuoteType[] = [
   {
     quote:
-      "We don't build software for today. We engineer systems that remain scalable, secure, and adaptable for the next decade.",
+      "Technology should not only solve today's challenges—it should prepare businesses for tomorrow's opportunities.",
     name: "Dravinanshu Mishra",
     designation: "Founder & Chairman",
     image: founder,
   },
   {
     quote:
-      "True business growth comes from creating value, building trust, and delivering solutions that empower our clients to lead their industries.",
+      "Success comes from combining innovation, execution, and trust. That's the culture we build every day.",
     name: "Biplab Biswas",
     designation: "Co-Founder & CEO",
     image:
@@ -74,7 +137,7 @@ const leadershipQuotes = [
   },
   {
     quote:
-      "Technology is most powerful when it is built on strong architecture, clean engineering principles, and a vision for long-term innovation.",
+      "Clean architecture and scalable engineering are the foundations of every successful digital product.",
     name: "Prashant Sharma",
     designation: "Co-Founder & CTO",
     image: cto,
@@ -83,153 +146,289 @@ const leadershipQuotes = [
 
 const CoreTeam = () => {
   return (
-    <section className="relative overflow-hidden bg-[#030B2A] py-24 text-white">
-      {/* Background Effects */}
-      <div className="absolute left-0 top-0 h-112.5 w-112.5 rounded-full bg-[#0E6AFA]/10 blur-[140px]" />
-      <div className="absolute bottom-0 right-0 h-100 w-100 rounded-full bg-[#256CE8]/10 blur-[140px]" />
+    <>
+      <section className="relative overflow-hidden bg-[#020B2D] py-28 text-white">
+        <div className="absolute left-0 top-0 h-112.5 w-112.5 rounded-full bg-blue-600/10 blur-[160px]" />
+        <div className="absolute right-0 bottom-0 h-100 w-100 rounded-full bg-sky-500/10 blur-[160px]" />
+        <div className="relative mx-auto max-w-7xl px-6">
+          {/* Header */}
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-2 text-sm text-blue-300">
+              <Sparkles size={16} />
+              Leadership Team
+            </span>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
-            Leadership Team
-          </span>
+            <h2 className="mt-8 text-5xl font-bold leading-tight">
+              Meet The People Behind
+              <span className="block text-[#0E6AFA]">Arinovaa Labs</span>
+            </h2>
 
-          <h2 className="mt-6 text-4xl font-bold md:text-5xl">
-            Meet Our Core Team
-          </h2>
+            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+              Our team combines engineering excellence, strategic thinking, and
+              innovation to deliver scalable digital products for startups,
+              enterprises, and global organizations.
+            </p>
+          </div>
 
-          <p className="mt-6 text-lg leading-8 text-slate-400">
-            A collective of engineers, architects, and innovators committed to
-            building impactful digital products and future-ready technology
-            solutions.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-3xl border border-white/10 bg-[#08112F]/80 p-8 text-center backdrop-blur-sm"
-            >
-              <h3 className="text-4xl font-bold text-[#0E6AFA]">
-                {item.value}
-              </h3>
-
-              <p className="mt-3 text-slate-400">{item.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Team Members */}
-        <div className="mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {teamMembers.map((member) => (
-            <article
-              key={member.name}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-[#08112F]/80 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#0E6AFA]/40"
-            >
-              <div className="relative overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} - ${member.role}`}
-                  width={500}
-                  height={600}
-                  className="h-95 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-linear-to-t from-[#08112F] via-transparent to-transparent" />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">{member.name}</h3>
-
-                <p className="mt-1 text-[#0E6AFA]">{member.role}</p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {member.expertise.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full bg-[#0E6AFA]/10 px-3 py-1 text-xs font-medium text-blue-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Philosophy */}
-        <div className="mt-24 rounded-3xl border border-white/10 bg-[#08112F]/80 p-10 backdrop-blur-sm">
-          <span className="text-sm uppercase tracking-[0.25em] text-[#0E6AFA]">
-            Our Philosophy
-          </span>
-
-          <h3 className="mt-4 text-3xl font-bold">
-            Great software is built by great engineers, not just great
-            technology.
-          </h3>
-
-          <p className="mt-6 max-w-4xl leading-8 text-slate-400">
-            At Arinovaa Labs, every architect, engineer, and researcher shares
-            responsibility for innovation, quality, and long-term scalability.
-            We believe technology should be resilient, transparent, and
-            human-centered.
-          </p>
-        </div>
-
-        {/* Leadership Quotes */}
-        <div className="mt-24">
-          <h3 className="mb-10 text-center text-3xl font-bold">
-            Voices of Leadership
-          </h3>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {leadershipQuotes.map((item) => (
+          {/* ================= Statistics ================= */}
+          <div className="mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((item) => (
               <div
-                key={item.name}
-                className="rounded-3xl border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] p-8"
+                key={item.label}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#0E6AFA]/40 hover:bg-white/10"
               >
-                <span className="text-6xl font-bold leading-none text-[#0E6AFA]"></span>
+                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#0E6AFA]/10 blur-3xl transition-all duration-500 group-hover:scale-150" />
 
-                <p className="mt-4 min-h-45 italic leading-8 text-slate-300">
-                  {item.quote}
+                <h3 className="relative text-5xl font-bold text-[#0E6AFA]">
+                  {item.value}
+                </h3>
+
+                <p className="relative mt-4 text-sm uppercase tracking-wider text-slate-400">
+                  {item.label}
                 </p>
-
-                <div className="mt-8 flex items-center gap-4 border-t border-white/10 pt-5">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={56}
-                    height={56}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-
-                  <div>
-                    <h4 className="font-semibold">{item.name}</h4>
-
-                    <p className="text-sm text-slate-400">{item.designation}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* CTA */}
-        <div className="mt-24 rounded-3xl border border-white/10 bg-linear-to-r from-[#08112F] to-[#10204F] p-10 text-center">
-          <h3 className="text-3xl font-bold">Building the Future Together</h3>
+          {/* ================= Leadership ================= */}
+          <div className="mt-32">
+            <div className="mb-14 text-center">
+              <h3 className="text-4xl font-bold">Leadership Team</h3>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-400">
-            Our multidisciplinary team combines deep technical expertise,
-            strategic thinking, and innovative problem-solving to help
-            organizations thrive in a rapidly evolving digital landscape.
-          </p>
+              <p className="mx-auto mt-5 max-w-3xl text-slate-400">
+                Meet the leaders driving innovation, engineering excellence, and
+                long-term product vision at Arinovaa Labs.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+              {teamMembers.map((member) => (
+                <article
+                  key={member.name}
+                  className="group overflow-hidden rounded-[30px] border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] transition-all duration-500 hover:-translate-y-3 hover:border-[#0E6AFA]/40"
+                >
+                  {/* Image */}
+
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={600}
+                      height={700}
+                      className="h-105 w-full object-cover transition duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-linear-to-t from-[#020B2D] via-transparent to-transparent" />
+
+                    <span className="absolute left-5 top-5 rounded-full bg-[#0E6AFA] px-4 py-2 text-xs font-semibold">
+                      {member.experience}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+
+                  <div className="p-7">
+                    <h3 className="text-2xl font-bold">{member.name}</h3>
+
+                    <p className="mt-2 font-medium text-[#0E6AFA]">
+                      {member.role}
+                    </p>
+
+                    <p className="mt-5 leading-7 text-slate-400">
+                      {member.bio}
+                    </p>
+
+                    {/* Expertise */}
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {member.expertise.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-[#0E6AFA]/20 bg-[#0E6AFA]/10 px-3 py-1 text-xs font-medium text-blue-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Social */}
+
+                    <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+                      <div className="flex gap-3">
+                        <Link
+                          href={member.linkedin || "#"}
+                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
+                        >
+                          <FaLinkedinIn size={18} />
+                        </Link>
+
+                        <Link
+                          href={member.github || "#"}
+                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
+                        >
+                          <FaGithub size={18} />
+                        </Link>
+
+                        <Link
+                          href={member.email || "#"}
+                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
+                        >
+                          <Mail size={18} />
+                        </Link>
+                      </div>
+
+                      <Link
+                        href="/contact"
+                        className="flex items-center gap-2 text-sm font-semibold text-[#0E6AFA]"
+                      >
+                        Connect
+                        <ArrowRight
+                          size={16}
+                          className="transition group-hover:translate-x-1"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+          
+          {/* ================= OUR Developers ================= */}
+          <div className="mt-32">
+            <div className="mb-14 text-center">
+              <span className="rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
+                Engineering Excellence
+              </span>
+
+              <h3 className="mt-6 text-4xl font-bold">
+                Meet Our Development Team
+              </h3>
+
+              <p className="mx-auto mt-5 max-w-3xl text-slate-400">
+                Behind every successful product is a passionate team of
+                engineers, designers and architects committed to delivering
+                exceptional digital experiences.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+              {developers.map((member) => (
+                <article
+                  key={member.name}
+                  className="group overflow-hidden rounded-[30px] border border-white/10 bg-[#08112F]/80 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 hover:border-[#0E6AFA]/40"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={500}
+                      height={600}
+                      className="h-95 w-full object-cover transition duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#020B2D] to-transparent" />
+                  </div>
+                  <div className="p-7">
+                    <h4 className="text-2xl font-bold">{member.name}</h4>
+                    <p className="mt-2 text-[#0E6AFA]">{member.role}</p>
+                    <p className="mt-5 leading-7 text-slate-400">
+                      {member.bio}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {member.expertise.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full bg-[#0E6AFA]/10 px-3 py-1 text-xs text-blue-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* ================= Leadership Quotes Founder & Co-Founders ================= */}
+          <div className="mt-32">
+            <div className="mb-14 text-center">
+              <h3 className="text-4xl font-bold">Voices of Leadership</h3>
+            </div>
+            <div className="grid gap-8 lg:grid-cols-3">
+              {leadershipQuotes.map((item) => (
+                <div
+                  key={item.name}
+                  className="rounded-[30px] border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] p-8"
+                >
+                  <Quote className="text-[#0E6AFA]" size={42} />
+                  <p className="mt-8 min-h-42.5 italic leading-8 text-slate-300">
+                    {item.quote}
+                  </p>
+                  <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={60}
+                      height={60}
+                      className="h-16 w-16 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold">{item.name}</h4>
+
+                      <p className="text-sm text-slate-400">
+                        {item.designation}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ================= CTA Last one================= */}
+          <div className="relative mt-32 overflow-hidden rounded-[40px] border border-white/10 bg-linear-to-r from-[#08112F] via-[#10204F] to-[#08112F] px-8 py-24 text-center">
+            <div className="absolute left-0 top-0 h-60 w-60 rounded-full bg-blue-500/10 blur-[140px]" />
+            <div className="absolute bottom-0 right-0 h-60 w-60 rounded-full bg-sky-500/10 blur-[140px]" />
+            <div className="relative z-10 mx-auto max-w-4xl">
+              <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 px-5 py-2 text-sm text-blue-300">
+                <Star size={16} className="fill-current" />
+                {"Let's"} Build Together
+              </span>
+
+              <h3 className="mt-8 text-5xl font-bold leading-tight">
+                Ready To Build
+                <span className="block text-[#0E6AFA]">
+                  Your Next Big Product?
+                </span>
+              </h3>
+
+              <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+                Whether {"you're"} launching a startup, scaling an enterprise,
+                or building an AI-powered platform, our team is ready to help
+                you turn ideas into successful products.
+              </p>
+
+              <div className="mt-12 flex flex-wrap justify-center gap-5">
+                <Link
+                  href="/contact"
+                  className="rounded-xl bg-[#0E6AFA] px-8 py-4 font-semibold transition hover:bg-blue-700"
+                >
+                  Start Your Project
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10"
+                >
+                  Schedule Consultation
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
