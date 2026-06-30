@@ -7,7 +7,7 @@ import {
   RefreshCw,
   Database,
   GraduationCap,
-  ArrowRight,
+  // ArrowRight,
 } from "lucide-react";
 
 const services = [
@@ -75,7 +75,7 @@ export default function Experties() {
           <Card {...services[1]} />
 
           {/* SaaS Large */}
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/4 to-white/2 p-6 lg:col-span-2">
+          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/4 to-white/2 p-6 lg:col-span-2 hover:border-blue-500/30 hover:bg-white/5">
             <Cloud className="mb-6 h-5 w-5 text-orange-300" />
 
             <h3 className="text-2xl font-bold text-[#dce4ff]">
@@ -88,7 +88,7 @@ export default function Experties() {
             </p>
 
             <button className="mt-6 inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white">
-              Learn More <ArrowRight size={14} />
+              {/* Learn More <ArrowRight size={14} /> */}
             </button>
 
             <div className="absolute right-6 bottom-6 opacity-10">
@@ -103,7 +103,7 @@ export default function Experties() {
 
           {/* Right Small Cards */}
           <div className="flex flex-col gap-4">
-            <div className="rounded-2xl border border-white/10 bg-white/3 p-5">
+            <div className="rounded-2xl border border-white/10 bg-white/3 p-5 hover:border-blue-500/30 hover:bg-white/5">
               <Database className="mb-4 h-4 w-4 text-orange-300" />
 
               <h4 className="text-sm font-semibold text-[#dce4ff]">
@@ -115,7 +115,7 @@ export default function Experties() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/3 p-5">
+            <div className="rounded-2xl border border-white/10 bg-white/3 p-5 hover:border-blue-500/30 hover:bg-white/5">
               <GraduationCap className="mb-4 h-4 w-4 text-blue-300" />
 
               <h4 className="text-sm font-semibold text-[#dce4ff]">
@@ -154,7 +154,7 @@ function Card({
         {description}
       </p>
 
-      <ArrowRight className="mt-6 h-4 w-4 text-slate-500 transition group-hover:translate-x-1 group-hover:text-white" />
+      {/* <ArrowRight className="mt-6 h-4 w-4 text-slate-500 transition group-hover:translate-x-1 group-hover:text-white" /> */}
     </div>
   );
 }

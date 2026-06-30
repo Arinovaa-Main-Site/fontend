@@ -79,7 +79,10 @@ export default function Hero() {
       {/* Trusted Bar */}
       <div className="border-t border-white/5 bg-[#010a25] py-6">
         <p className="text-center text-xs uppercase tracking-[0.3em] text-slate-400">
-          Trusted by Global Industry Leaders
+          {/* Trusted by Global Industry Leaders */}
+          {/* Building Long-Term Partnerships Through Reliable Software Solutions */}
+          {/* Delivering Reliable Software Solutions & Long-Term Partnerships Worldwide */}
+          Reliable Software Solutions. Long-Term Partnerships, Proven Results.
         </p>
       </div>
     </section>

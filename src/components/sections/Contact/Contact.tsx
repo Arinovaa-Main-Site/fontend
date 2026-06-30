@@ -223,7 +223,7 @@ export default function ContactPage() {
                   <div className="flex flex-col gap-0.5">
                     <span className="text-xs text-gray-500">Email us</span>
                     <span className="text-sm text-white font-medium">
-                      solutions@arinovaa.io
+                      info@arinovaa.com
                     </span>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                   <div className="flex flex-col gap-0.5">
                     <span className="text-xs text-gray-500">Call us</span>
                     <span className="text-sm text-white font-medium">
-                      +1 (888) LABê-ARIN
+                      +91 63772 45313
                     </span>
                   </div>
                 </div>
@@ -247,9 +247,7 @@ export default function ContactPage() {
                   <div className="flex flex-col gap-0.5">
                     <span className="text-xs text-gray-500">Visit our lab</span>
                     <span className="text-sm text-white font-medium leading-snug">
-                      452 Tech Innovation Plaza,
-                      <br />
-                      San Francisco, CA 94103
+                      Udaipur Rajasthan, India 313002
                     </span>
                   </div>
                 </div>
@@ -269,10 +267,6 @@ export default function ContactPage() {
                 Existing clients can access the engineering portal for 24/7
                 technical assistance.
               </p>
-              {/* <button className="flex items-center gap-1.5 text-white text-sm font-medium underline underline-offset-2 cursor-pointer bg-transparent">
-                                Open Client Portal
-                                <ArrowRight size={14} />
-                            </button> */}
             </div>
           </div>
         </div>
@@ -283,10 +277,10 @@ export default function ContactPage() {
           <div className="flex items-start justify-between mb-5">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-1">
-                Global Headquarters
+                Ragistered Office
               </h2>
               <p className="text-gray-400 text-sm">
-                Located in the heart of the world&apos;s leading technology hub.
+                Udaipur, Rajasthan.
               </p>
             </div>
             <div className="flex items-center gap-2 mt-1">
@@ -302,7 +296,7 @@ export default function ContactPage() {
           {/* Map */}
           <div className="relative rounded-xl overflow-hidden h-80 md:h-105 bg-[#0d1220]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0867166060077!2d-122.41941568496826!3d37.77492797975948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858081b0cc63c7%3A0x9eba13d56a5a3d3d!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58039.146365786844!2d73.7048721!3d24.6082862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56550a14411%3A0xdbd8c28455b868b0!2sUdaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1782803685741!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{
@@ -314,6 +308,7 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+         
 
             {/* Coordinates badge */}
             <div className="absolute bottom-5 left-5 bg-[#1a2035]/90 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3">
