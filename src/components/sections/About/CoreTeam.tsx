@@ -9,15 +9,15 @@ import { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
 // STATES DATA.
 const stats: Stat[] = [
   {
-    value: "100+",
+    value: "10+",
     label: "Projects Delivered",
   },
   {
-    value: "50+",
+    value: "3+",
     label: "Global Clients",
   },
   {
-    value: "15+",
+    value: "4+",
     label: "Technology Experts",
   },
   {
@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     image: founder,
     linkedin: "#",
     github: "#",
-    email: "mailto:contact@arinovaa.com",
+    email: "mailto:info@arinovaa.com",
     expertise: [
       "Product Strategy",
       "Full Stack Development",
@@ -52,7 +52,7 @@ const teamMembers: TeamMember[] = [
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
     linkedin: "#",
-    email: "mailto:contact@arinovaa.com",
+    email: "mailto:info@arinovaa.com",
     expertise: [
       "Business Strategy",
       "Leadership",
@@ -68,12 +68,13 @@ const teamMembers: TeamMember[] = [
     image: cto,
     linkedin: "#",
     github: "#",
-    email: "mailto:contact@arinovaa.com",
+    email: "mailto:info@arinovaa.com",
     expertise: [
       "Software Architecture",
       ".NET",
       "Cloud Infrastructure",
       "Engineering Leadership",
+      "DBMS"
     ],
   },
 ];
@@ -81,7 +82,7 @@ const teamMembers: TeamMember[] = [
 // OUR CORE DEVELOPERS TEAMS.
 const developers: TeamMember[] = [
   {
-    name: "Ganesh Mishra",
+    name: "Ganesh Menaria",
     role: "Senior Full Stack Developer",
     bio: "Expert in building enterprise-grade web applications using React, Next.js, Node.js, and Laravel.",
     experience: "5+ Years",

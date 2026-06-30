@@ -40,8 +40,9 @@ const journeySteps = [
   },
 ];
 
+// TECH.
 const technologies = [
-  "React",
+   "React",
   "Next.js",
   "Node.js",
   "PostgreSQL",
@@ -49,6 +50,15 @@ const technologies = [
   "AWS",
   "Docker",
   "AI/ML",
+  ".NET",
+  "ASP.NET Core",
+  "C#",
+  "Blazor",
+  "SQL Server",
+  "Entity Framework Core",
+  "Azure",
+  "REST APIs",
+  "JavaScript"
 ];
 
 export default function OurDevJourney() {

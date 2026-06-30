@@ -10,7 +10,7 @@ export default function ArinovaaTeam() {
       icon: Users,
       title: "Experienced Team",
       description:
-        "Senior engineers with decades of combined experience in silicon-valley standards.",
+        "Senior engineers with decades of experience.",
     },
     {
       icon: Gauge,
