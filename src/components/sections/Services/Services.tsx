@@ -12,6 +12,7 @@ import {
   GraduationCap,
   CheckCircle2,
 } from "lucide-react";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const services = [
   {
@@ -267,10 +268,12 @@ export default function ServicesPage() {
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <Link
-              href="/contact"
-              className="px-8 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors"
+              href="https://cal.id/arinovaa-labs"
+              className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10 flex items-center gap-2"
             >
-              Schedule a Consultation
+              {/* Schedule a Call */}
+              <FaCalendarAlt />
+              {"Schedule a Call at Your Convenience"}
             </Link>
             <Link
               href="/career"

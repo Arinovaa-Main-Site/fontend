@@ -37,18 +37,11 @@ const About = () => {
           {/* Right Side */}
           <div>
             <p className="mb-8 leading-8 text-slate-300">
-              Founded in 2018 by a collective of systems architects and data
-              scientists, Arinovaa Labs emerged from a simple observation: the
-              bridge between visionary business goals and technical execution
-              was often brittle.
+              Founded in 2026, Arinovaa Labs was built on a simple observation: the bridge between visionary business goals and technical execution is often brittle.
             </p>
 
             <p className="mb-10 leading-8 text-slate-300">
-              We established our practice on the principles of structural
-              integrity and algorithmic transparency. Unlike traditional
-              consultancies, we embed ourselves deep within the engineering
-              lifecycle, treating every line of code as a critical asset for
-              our clients&apos; long-term scalability.
+              We established our practice on the principles of structural integrity and algorithmic transparency. Unlike traditional consultancies, we embed ourselves deep within the engineering lifecycle, treating every line of code as a critical asset for our {"client's"} long-term scalability.
             </p>
 
             {/* Quote Card */}
@@ -58,8 +51,7 @@ const About = () => {
               </div>
 
               <p className="italic leading-8 text-slate-300">
-                To empower humanity through meticulously engineered digital
-                ecosystems that are as resilient as they are innovative
+               We are dedicated to delivering exceptional solutions with a strong commitment to client satisfaction, building reliable, scalable, and innovative software that helps businesses achieve their goals with confidence.
               </p>
             </div>
           </div>

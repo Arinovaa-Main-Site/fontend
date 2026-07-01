@@ -4,7 +4,9 @@ import { ArrowRight, Mail, Quote, Sparkles, Star } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import founder from "@/assets/images/founder.png";
 import cto from "@/assets/images/cto.jpeg";
+import ganesh from "@/assets/images/ganesh-dev.avif";
 import { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
+import { FaCalendarAlt } from "react-icons/fa";
 
 // STATES DATA.
 const stats: Stat[] = [
@@ -34,8 +36,8 @@ const teamMembers: TeamMember[] = [
     bio: "Visionary entrepreneur focused on building scalable digital products and empowering businesses through innovative technology.",
     experience: "3+ Years",
     image: founder,
-    linkedin: "#",
-    github: "#",
+    linkedin: "https://www.linkedin.com/in/dravinanshu-mishra-0909b430b",
+    github: "https://github.com/dravinanshuMishra",
     email: "mailto:info@arinovaa.com",
     expertise: [
       "Product Strategy",
@@ -49,8 +51,7 @@ const teamMembers: TeamMember[] = [
     role: "Co-Founder & CEO",
     bio: "Driving business growth through strategic partnerships, enterprise transformation, and customer-centric innovation.",
     experience: "3+ Years",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
+    image: ganesh,
     linkedin: "#",
     email: "mailto:info@arinovaa.com",
     expertise: [
@@ -66,7 +67,7 @@ const teamMembers: TeamMember[] = [
     bio: "Technology architect passionate about designing secure, scalable, and future-ready enterprise platforms.",
     experience: "20+ Years",
     image: cto,
-    linkedin: "#",
+    linkedin: "http://www.linkedin.com/in/prashant-sharma-ab9b9a30",
     github: "#",
     email: "mailto:info@arinovaa.com",
     expertise: [
@@ -85,37 +86,9 @@ const developers: TeamMember[] = [
     name: "Ganesh Menaria",
     role: "Senior Full Stack Developer",
     bio: "Expert in building enterprise-grade web applications using React, Next.js, Node.js, and Laravel.",
-    experience: "5+ Years",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
-    expertise: ["Next.js", "React", "Laravel", "TypeScript"],
-  },
-  {
-    name: "Nishant Kumar",
-    role: "Frontend Engineer",
-    bio: "Focused on creating beautiful, responsive, and high-performance user interfaces.",
-    experience: "4+ Years",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-    expertise: ["React", "Tailwind CSS", "Figma", "Animations"],
-  },
-  {
-    name: "Rohit Sharma",
-    role: "Backend Engineer",
-    bio: "Specialized in APIs, scalable backend systems, databases, and cloud-native applications.",
-    experience: "6+ Years",
-    image:
-      "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=800&q=80",
-    expertise: ["Node.js", "Laravel", "PostgreSQL", "AWS"],
-  },
-  {
-    name: "Ganesh Verma",
-    role: "DevOps Engineer",
-    bio: "Experienced in cloud infrastructure, CI/CD pipelines, Docker, Kubernetes, and AWS deployments.",
-    experience: "5+ Years",
-    image:
-      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80",
-    expertise: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    experience: "15+ Years",
+    image: ganesh,
+    expertise: ["Next.js", "React", "Laravel", "TypeScript", "WordPress"],
   },
 ];
 
@@ -123,7 +96,7 @@ const developers: TeamMember[] = [
 const leadershipQuotes: QuoteType[] = [
   {
     quote:
-      "Technology should not only solve today's challenges—it should prepare businesses for tomorrow's opportunities.",
+      "Arinovaa is a name inspired by the ideas of Innovation, the Future, and Growth. It represents our commitment to creating forward-thinking digital solutions that help businesses evolve, scale, and stay ahead in a rapidly changing world.",
     name: "Dravinanshu Mishra",
     designation: "Founder & Chairman",
     image: founder,
@@ -133,12 +106,11 @@ const leadershipQuotes: QuoteType[] = [
       "Success comes from combining innovation, execution, and trust. That's the culture we build every day.",
     name: "Biplab Biswas",
     designation: "Co-Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+    image: ganesh,
   },
   {
     quote:
-      "Clean architecture and scalable engineering are the foundations of every successful digital product.",
+      "Our greatest measure of success is our clients' satisfaction. We are committed to going above and beyond to ensure customer satisfaction at every opportunity, because their success is our success.",
     name: "Prashant Sharma",
     designation: "Co-Founder & CTO",
     image: cto,
@@ -227,7 +199,6 @@ const CoreTeam = () => {
                   </div>
 
                   {/* Content */}
-
                   <div className="p-7">
                     <h3 className="text-2xl font-bold">{member.name}</h3>
 
@@ -256,19 +227,21 @@ const CoreTeam = () => {
 
                     <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
                       <div className="flex gap-3">
-                        <Link
+                        <a
                           href={member.linkedin || "#"}
+                          target="_blank"
                           className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
                         >
                           <FaLinkedinIn size={18} />
-                        </Link>
+                        </a>
 
-                        <Link
+                        <a
+                          target="_blank"
                           href={member.github || "#"}
                           className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
                         >
                           <FaGithub size={18} />
-                        </Link>
+                        </a>
 
                         <Link
                           href={member.email || "#"}
@@ -411,19 +384,27 @@ const CoreTeam = () => {
               </p>
 
               <div className="mt-12 flex flex-wrap justify-center gap-5">
+               
                 <Link
+                  href="https://cal.id/arinovaa-labs"
+                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10 flex items-center gap-2"
+                >
+                  {/* Schedule a Call */}
+                  <FaCalendarAlt />
+                  {"Schedule a Call at Your Convenience"}
+                </Link>
+
+                 <Link
                   href="/contact"
                   className="rounded-xl bg-[#0E6AFA] px-8 py-4 font-semibold transition hover:bg-blue-700"
                 >
                   Start Your Project
                 </Link>
 
-                <Link
-                  href="/contact"
-                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10"
-                >
-                  Schedule Consultation
-                </Link>
+                <p className="text-sm mt-10 text-slate-400 font-semibold flex items-center gap-2">
+                  <FaCalendarAlt />
+                  Choose a date and time that works best for you. Our live scheduling calendar will instantly confirm your meeting.
+                </p>
               </div>
             </div>
           </div>
