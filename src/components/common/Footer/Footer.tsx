@@ -7,17 +7,17 @@ import logo from "../../../assets/logo/Arinovaa_logofive.png";
 const socialLinks = [
   {
     icon: FaInstagram,
-    href: "https://www.instagram.com/arinovaalabs",
+    href: "https://www.instagram.com/labs.arinovaa",
     label: "Instagram",
   },
   {
     icon: FaLinkedinIn,
-    href: "https://www.linkedin.com/company/arinovaa-labs",
+    href: "https://www.linkedin.com/company/arinovaa-labs/",
     label: "LinkedIn",
   },
   {
     icon: FaFacebookF,
-    href: "https://www.facebook.com/arinovaalabs",
+    href: "https://www.facebook.com/profile.php?id=61590797545352&mibextid=rS40aB7S9Ucbxw6v",
     label: "Facebook",
   },
 ];

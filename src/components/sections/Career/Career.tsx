@@ -37,7 +37,7 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen bg-[#020f34] text-white font-sans">
       {/* ── Hero Section ── */}
-      <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+      <section className="flex flex-col items-center justify-center pt-10 px-6 text-center">
         <div className="border border-white/20 rounded-full px-4 py-1.5 mb-8">
           <span className="text-xs tracking-[0.18em] uppercase text-gray-300">
             We Are Hiring

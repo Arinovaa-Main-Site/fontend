@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight, Diamond, Share2 } from "lucide-react";
 import { toast } from "sonner";
+import { FaCalendarAlt } from "react-icons/fa";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -21,7 +23,6 @@ export default function ContactPage() {
   };
 
   const handleSubmit = async () => {
-
     if (!form.name.trim()) {
       toast.error("Please enter your name");
       return;
@@ -63,7 +64,7 @@ export default function ContactPage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(form),
-        }
+        },
       );
 
       const data = await response.json();
@@ -81,19 +82,12 @@ export default function ContactPage() {
         company: "",
         message: "",
       });
-
     } catch (error) {
-
       toast.error(
-        error instanceof Error
-          ? error.message
-          : "Something went wrong"
+        error instanceof Error ? error.message : "Something went wrong",
       );
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
@@ -204,7 +198,6 @@ export default function ContactPage() {
 
               {!loading && <ArrowRight size={15} />}
             </button>
-
           </div>
 
           {/* Right column */}
@@ -245,7 +238,9 @@ export default function ContactPage() {
                     <MapPin size={16} className="text-gray-400" />
                   </div>
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-xs text-gray-500">Visit our lab</span>
+                    <span className="text-xs text-gray-500">
+                      Registered Office
+                    </span>
                     <span className="text-sm text-white font-medium leading-snug">
                       Udaipur Rajasthan, India 313002
                     </span>
@@ -271,17 +266,40 @@ export default function ContactPage() {
           </div>
         </div>
 
+        {/* ── CTA Section ── */}
+        <section className="max-w-7xl mx-auto mt-10">
+          <div className="border border-white/10 rounded-2xl px-8 py-20 flex flex-col items-center text-center bg-linear-to-br from-[#141929] via-[#0f1628] to-[#0d1221]">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-7xl leading-tight">
+              {"Let's Talk About Your Project and How We Can Help You Achieve Your Goals"}
+            </h2>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <Link
+                href="https://cal.id/arinovaa-labs"
+                className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 transition hover:bg-white/10 flex items-center gap-2"
+              >
+                {/* Schedule a Call */}
+                <FaCalendarAlt />
+                {"Schedule a Call at Your Convenience"}
+              </Link>
+              <Link
+                href="/career"
+                className="px-8 py-3.5 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors bg-transparent"
+              >
+                Explore Career Openings
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ───── Global Headquarters ───── */}
         <div className="mt-16 max-w-8xl">
           {/* Header row */}
           <div className="flex items-start justify-between mb-5">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-1">
-                Ragistered Office
+                Registered Office
               </h2>
-              <p className="text-gray-400 text-sm">
-                Udaipur, Rajasthan.
-              </p>
+              <p className="text-gray-400 text-sm">Udaipur, Rajasthan.</p>
             </div>
             <div className="flex items-center gap-2 mt-1">
               <button className="w-10 h-10 rounded-full bg-[#1e2640] border border-white/10 flex items-center justify-center hover:border-white/30 transition-colors cursor-pointer">
@@ -308,7 +326,6 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-         
 
             {/* Coordinates badge */}
             <div className="absolute bottom-5 left-5 bg-[#1a2035]/90 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3">
