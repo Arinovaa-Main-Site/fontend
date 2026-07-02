@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 import { FaCalendarAlt } from "react-icons/fa";
 
+// DATA.
 const services = [
   {
+    slug: "software-engineering",
     icon: Code2,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
@@ -28,6 +30,7 @@ const services = [
     ],
   },
   {
+    slug: "app-modernization",
     icon: ArrowUpFromLine,
     iconBg: "bg-orange-600/20",
     iconColor: "text-orange-400",
@@ -40,6 +43,7 @@ const services = [
     ],
   },
   {
+    slug: "data-migration",
     icon: Database,
     iconBg: "bg-blue-700/20",
     iconColor: "text-blue-300",
@@ -52,22 +56,33 @@ const services = [
     ],
   },
   {
+    slug: "dev-maintenance",
     icon: Wrench,
     iconBg: "bg-orange-700/20",
     iconColor: "text-orange-400",
     title: "Dev & Maintenance",
     desc: "Ongoing support and continuous iteration for mission-critical software. We ensure your uptime and feature parity.",
-    areas: ["24/7 Monitoring & SRE", "Security Patching", "Performance Tuning"],
+    areas: [
+      "24/7 Monitoring & SRE",
+      "Security Patching",
+      "Performance Tuning",
+    ],
   },
   {
+    slug: "erp-solutions",
     icon: LayoutGrid,
     iconBg: "bg-blue-600/20",
     iconColor: "text-blue-400",
     title: "ERP Solutions",
     desc: "Custom ERP development and implementation of industry leaders. Streamlining operations through intelligent automation.",
-    areas: ["Supply Chain Management", "CRM Integration", "Custom Modules"],
+    areas: [
+      "Supply Chain Management",
+      "CRM Integration",
+      "Custom Modules",
+    ],
   },
   {
+    slug: "talent-training",
     icon: GraduationCap,
     iconBg: "bg-orange-600/20",
     iconColor: "text-orange-400",
@@ -147,7 +162,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map(
-              ({ icon: Icon, iconBg, iconColor, title, desc, areas }) => (
+              ({ slug, icon: Icon, iconBg, iconColor, title, desc, areas }) => (
                 <div
                   key={title}
                   className="bg-[#111827] border border-white/8 rounded-xl p-6 flex flex-col gap-5 hover:border-white/20 transition-colors"
@@ -185,7 +200,7 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <Link
-                    href="/services/learnMore"
+                    href={`/services/${slug}`}
                     className="mt-auto w-full border border-white/10 hover:border-white/30 text-white text-sm font-medium py-2.5 rounded-md transition-colors bg-transparent text-center block"
                   >
                     Learn More

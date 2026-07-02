@@ -1,5 +1,27 @@
 import Link from "next/link";
 
+import {
+  Brain,
+  Cloud,
+  Code2,
+  GraduationCap,
+  Monitor,
+  PenTool,
+  Settings,
+  Smartphone,
+} from "lucide-react";
+
+const serviceCards = [
+  { title: "Web Development", icon: Code2 },
+  { title: "Mobile Development", icon: Smartphone },
+  { title: "Desktop Applications", icon: Monitor },
+  { title: "AI Solutions", icon: Brain },
+  { title: "Cloud Solutions", icon: Cloud },
+  { title: "SaaS Development", icon: Settings },
+  { title: "UI/UX Design", icon: PenTool },
+  { title: "Internship & Training", icon: GraduationCap },
+];
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#020f34]">
@@ -42,34 +64,26 @@ export default function Hero() {
 
           {/* Right Card */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-130 rounded-2xl border border-white/10 bg-white/3 p-6 shadow-2xl backdrop-blur-sm">
-              <div className="rounded-xl bg-[#08142f] p-5">
-                {/* Top Lines */}
-                <div className="mb-4 space-y-2">
-                  <div className="h-2 w-20 rounded-full bg-[#9fb2ff]" />
-                  <div className="h-2 w-12 rounded-full bg-white/20" />
-                </div>
+            <div className="w-full max-w-162.5 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-4">
+                {serviceCards.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className={`group flex aspect-square flex-col items-center justify-center border-white/10 bg-[#08142F] p-6 transition-all duration-300 hover:bg-blue-600/10
+              ${index % 4 !== 3 ? "border-r" : ""}
+              ${index < 4 ? "border-b" : ""}
+            `}
+                    >
+                      <Icon className="mb-5 h-12 w-12 text-[#4D7CFF] transition-transform duration-300 group-hover:scale-110" />
 
-                {/* Toolbar */}
-                <div className="mb-4 flex items-center gap-2 rounded-lg bg-white/5 p-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10">
-                    ☁
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="h-2 rounded-full bg-[#9fb2ff]" />
-                    <div className="mt-2 h-1 rounded-full bg-white/10" />
-                  </div>
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10">
-                    ⧉
-                  </div>
-                </div>
-
-                {/* Main Screen */}
-                <div className="flex h-52 items-center justify-center rounded-lg border border-white/5 bg-white/2 text-sm tracking-widest text-slate-400">
-                  System Architecture Optimized
-                </div>
+                      <h3 className="text-center text-sm font-medium uppercase leading-6 tracking-wide text-white">
+                        {item.title}
+                      </h3>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -79,9 +93,6 @@ export default function Hero() {
       {/* Trusted Bar */}
       <div className="border-t border-white/5 bg-[#010a25] py-6">
         <p className="text-center text-xs uppercase tracking-[0.3em] text-slate-400">
-          {/* Trusted by Global Industry Leaders */}
-          {/* Building Long-Term Partnerships Through Reliable Software Solutions */}
-          {/* Delivering Reliable Software Solutions & Long-Term Partnerships Worldwide */}
           Reliable Software Solutions. Long-Term Partnerships, Proven Results.
         </p>
       </div>
