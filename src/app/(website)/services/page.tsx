@@ -1,9 +1,10 @@
 import Services from "@/components/sections/Services/Services"
 
-export default function ServicesPage() {
+export default async function ServicesSection() {
+
   return (
-    <div>
+    <>
       <Services />
-    </div>
+    </>
   );
 }
