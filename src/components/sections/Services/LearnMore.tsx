@@ -1,221 +1,238 @@
 "use client";
+import { notFound } from "next/navigation";
 
-import { useState } from "react";
+import { servicesData } from "@/constants/servicesData";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
+import { ChevronDown, ChevronUp, ChevronLeft } from "lucide-react";
 
-const tabs = ["All Projects"];
+export default function LearnMore({ slug }: { slug: string }) {
+  const service = useMemo(
+    () => servicesData.find((item) => item.slug === slug),
+    [slug],
+  );
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-const featuredCase = {
-  tag: "Fintech",
-  label: "Featured Story",
-  title: "Scalable Payment Infrastructure for NeoBank Alpha",
-  desc: "Migrating a legacy monolith to a high-concurrency microservices architecture capable of handling global transaction spikes without a single millisecond of downtime.",
-  stats: [
-    { value: "400%", label: "THROUGHPUT INCREASE" },
-    { value: "-60%", label: "LATENCY REDUCTION" },
-  ],
-  image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCPJqrd8gQvK9rtzMJ7B7IGNWB3n_xPa2skb1FmLIDxK7JeU55IMAfq1DEgAFwX-fZRJsPDGzXAkwCprdITTW_Cdl1kF3mS0RccTeCBohlR-wQnjqapOXoZdLlBd4qdsX1wRePdRNjv-CFWB77kHt5adVjE2E4j9czMDZhLgeiz_VsZHMXV95eDPeHWcXjIlX-C5-rRyKk1_cp9jxmxc2uARssu3XUDCKEo1dyYGd08KjoQTlHF2QhN4RDXYKOdS5QE4HyqdZNUlaRd",
-};
+  const router = useRouter();
 
-const caseStudies = [
-  {
-    tag: "Blockchain",
-    tagColor: "text-orange-400 bg-orange-400/10",
-    title: "E-Voting Full Stack",
-    desc: "A secure, blockchain-backed voting platform ensuring transparency and cryptographic integrity for modern democratic processes.",
-    stats: [
-      { value: "Zero-Knowledge", label: "PROOFS ENABLED" },
-      { value: "Immutable", label: "AUDIT LOGS" },
-    ],
-    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80",
-    href: "#",
-  },
-  {
-    tag: "Full Stack",
-    tagColor: "text-blue-300 bg-blue-400/10",
-    title: "Panchal Family Full Stack",
-    desc: "A comprehensive family management and genealogical platform designed for high data integrity and seamless collaboration.",
-    stats: [
-      { value: "Real-time", label: "SYNC ENGINE" },
-      { value: "High", label: "DATA INTEGRITY" },
-    ],
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80",
-    href: "#",
-  },
-  {
-    tag: "Mobile",
-    tagColor: "text-blue-300 bg-blue-400/10",
-    title: "React Native Mobile App",
-    desc: "A high-performance cross-platform application delivering native-level experiences with a unified codebase for iOS and Android.",
-    stats: [
-      { value: "90%", label: "CODE REUSE" },
-      { value: "Native", label: "PERFORMANCE" },
-    ],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
-    href: "#",
-  },
-];
-
-export default function CaseStudiesPage() {
-  const [activeTab, setActiveTab] = useState("All Projects");
+  if (!service) {
+    notFound();
+  }
 
   return (
-    <div className="min-h-screen bg-[#0d1221] text-white font-sans">
+    <>
+      <section className="bg-[#020F34] py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Back */}
+          <button
+            onClick={() => router.push("/services")}
+            className="mb-8 flex items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-blue-600"
+          >
+            <ChevronLeft size={18} />
+            Back to Services
+          </button>
 
-      {/* ── Hero ── */}
-      <section className="px-6 md:px-16 pt-16 pb-10 max-w-7xl mx-auto">
-        <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">
-          Case Studies
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5 max-w-xl">
-          Engineering Excellence In Action.
-        </h1>
-        <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-8">
-          We specialize in solving high-stakes technical challenges for industry leaders.
-          Explore how our engineering-first approach transforms complex problems into
-          scalable digital advantages.
-        </p>
+          {/* Main Content */}
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+            {/* Left */}
+            <div>
+              {/* Badge */}
+              <span className="inline-flex rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-medium uppercase tracking-widest text-blue-300">
+                {service.title}
+              </span>
 
-        {/* Filter tabs */}
-        <div className="flex items-center gap-2 flex-wrap mb-10">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${
-                activeTab === tab
-                  ? "bg-[#1e2f5e] border-blue-500/40 text-white"
-                  : "bg-transparent border-white/15 text-gray-400 hover:text-white hover:border-white/30"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+              {/* Heading */}
+              <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">
+                {service.title}
+              </h1>
 
-        {/* Featured case study */}
-        <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/10 bg-[#111827]">
-          {/* Image */}
-          <div className="relative min-h-75 md:min-h-95">
-            <Image
-              src={featuredCase.image}
-              alt={featuredCase.title}
-              fill
-              className="object-cover brightness-75"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          {/* Content */}
-          <div className="p-8 flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-xs text-blue-400 font-medium">{featuredCase.tag}</span>
-              <span className="text-gray-600 text-xs">◆</span>
-              <span className="text-xs text-gray-400">Featured Story</span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
-              {featuredCase.title}
-            </h2>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              {featuredCase.desc}
-            </p>
-            <div className="flex items-start gap-8 mb-6">
-              {featuredCase.stats.map(({ value, label }) => (
-                <div key={label}>
-                  <p className="text-xl font-bold text-orange-400">{value}</p>
-                  <p className="text-xs tracking-[0.15em] uppercase text-gray-500 mt-0.5">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="#"
-              className="flex items-center gap-1.5 text-sm text-white font-medium hover:text-blue-300 transition-colors w-fit"
-            >
-              Read Case Study <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
+              {/* Short Description */}
+              <p className="mt-6 text-xl leading-8 text-slate-300">
+                {service.shortDescription}
+              </p>
 
-      {/* ── More Case Studies ── */}
-      <section className="px-6 md:px-16 pb-20 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-4">
-          {caseStudies.map(({ tag, tagColor, title, desc, stats, image, href }, i) => (
-            <div
-              key={title}
-              className="grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/10 bg-[#111827] hover:border-white/20 transition-colors"
-            >
-              {/* Image — alternate left/right */}
-              <div className={`relative min-h-[240px] ${i % 2 !== 0 ? "md:order-2" : ""}`}>
-                <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  className="object-cover brightness-75"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              {/* Content */}
-              <div className={`p-8 flex flex-col justify-center ${i % 2 !== 0 ? "md:order-1" : ""}`}>
-                <span className={`text-xs font-medium px-2 py-0.5 rounded-full w-fit mb-4 ${tagColor}`}>
-                  {tag}
-                </span>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-snug">
-                  {title}
+              {/* Description */}
+              <p className="mt-6 leading-8 text-slate-400">
+                {service.description}
+              </p>
+
+              {/* Technologies */}
+              <div className="mt-10">
+                <h3 className="mb-4 text-xl font-semibold text-white">
+                  Technologies We Use
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">{desc}</p>
-                <div className="flex items-start gap-8">
-                  {stats.map(({ value, label }) => (
-                    <div key={label} className="flex-1">
-                      <p className="text-sm font-bold text-white">{value}</p>
-                      <p className="text-xs tracking-[0.12em] uppercase text-gray-500 mt-0.5">
-                        {label}
-                      </p>
+
+                <div className="flex flex-wrap gap-3">
+                  {service.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-300 transition hover:bg-blue-500/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benefits */}
+              <div className="mt-10">
+                <h3 className="mb-4 text-xl font-semibold text-white">
+                  Key Benefits
+                </h3>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {service.benefits.map((benefit) => (
+                    <div
+                      key={benefit}
+                      className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <div className="h-2.5 w-2.5 rounded-full bg-blue-500" />
+
+                      <span className="text-slate-300">{benefit}</span>
                     </div>
                   ))}
-                  <Link
-                    href={href}
-                    className="flex items-center gap-1 text-sm text-white hover:text-blue-300 transition-colors shrink-0 self-center"
-                  >
-                    Read Story <ArrowRight size={14} />
-                  </Link>
+                </div>
+              </div>
+
+              {/* Development Process */}
+              <div className="mt-10">
+                <h3 className="mb-4 text-xl font-semibold text-white">
+                  Development Process
+                </h3>
+
+                <div className="space-y-3">
+                  {service.process.map((step, index) => (
+                    <div
+                      key={step}
+                      className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-blue-500/30"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-bold text-white">
+                        {index + 1}
+                      </div>
+
+                      <span className="text-slate-300">{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Industries */}
+              <div className="mt-10">
+                <h3 className="mb-4 text-xl font-semibold text-white">
+                  Industries We Serve
+                </h3>
+
+                <div className="flex flex-wrap gap-3">
+                  {service.industries.map((industry) => (
+                    <span
+                      key={industry}
+                      className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-slate-300"
+                    >
+                      {industry}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12 flex flex-wrap gap-4">
+                <button className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
+                  Get Started
+                </button>
+
+                <button className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            {/* Right */}
+            <div className="sticky top-28">
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur">
+                <Image
+                  src={service.heroImage}
+                  alt={service.title}
+                  width={1400}
+                  height={900}
+                  className="h-150 w-full rounded-2xl object-cover"
+                />
+              </div>
+
+              {/* Stats */}
+              <div className="mt-6 grid grid-cols-3 gap-4">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
+                  <h4 className="text-3xl font-bold text-white">
+                    {service.technologies.length}
+                  </h4>
+                  <p className="mt-1 text-sm text-slate-400">Technologies</p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
+                  <h4 className="text-3xl font-bold text-white">
+                    {service.process.length}
+                  </h4>
+                  <p className="mt-1 text-sm text-slate-400">Process</p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
+                  <h4 className="text-3xl font-bold text-white">
+                    {service.industries.length}
+                  </h4>
+                  <p className="mt-1 text-sm text-slate-400">Industries</p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
 
-      {/* ── CTA ── */}
-      <section className="px-6 md:px-16 pb-24 max-w-7xl mx-auto">
-        <div className="border border-white/10 rounded-2xl px-8 py-20 flex flex-col items-center text-center bg-gradient-to-br from-[#141929] via-[#0f1628] to-[#0d1221]">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-lg leading-tight">
-            Ready to Engineer Your Success Story?
-          </h2>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-10">
-            Partner with a team that speaks code and understands business. Let&apos;s build
-            the next generation of your digital ecosystem.
-          </p>
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <Link
-              href="/contact"
-              className="px-8 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors"
-            >
-              Schedule a Consultation
-            </Link>
-            <Link
-              href="/services"
-              className="px-8 py-3.5 rounded-lg border border-white/20 hover:border-white/40 text-white text-sm font-medium transition-colors bg-transparent"
-            >
-              Browse Services
-            </Link>
+          {/* FAQ */}
+          <div className="mt-20">
+            <h2 className="text-3xl font-bold text-white">
+              Frequently Asked Questions
+            </h2>
+
+            <div className="mt-8 space-y-4">
+              {service.faqs.map((faq, index) => {
+                const isOpen = openFaq === index;
+
+                return (
+                  <div
+                    key={index}
+                    className="overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                  >
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-white/5"
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        {faq.question}
+                      </h3>
+
+                      {isOpen ? (
+                        <ChevronUp className="h-5 w-5 text-blue-400" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-blue-400" />
+                      )}
+                    </button>
+
+                    <div
+                      className={`grid transition-all duration-300 ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="px-6 pb-6 text-gray-300 leading-7">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
-
-    </div>
+    </>
   );
 }

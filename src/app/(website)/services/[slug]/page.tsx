@@ -8,12 +8,10 @@ interface Props {
 
 export default async function ServiceDetails({ params }: Props) {
   const { slug } = await params;
-  console.log("slugs ::", slug);
-
+  
   return (
-    <div>
-      <h1>{slug}</h1>
-      <LearnMore />
-    </div>
+    <>
+      <LearnMore slug={slug} />
+    </>
   );
 }
