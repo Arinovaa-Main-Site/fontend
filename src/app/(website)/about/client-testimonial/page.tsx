@@ -1,8 +1,10 @@
-import React from 'react'
+import ClientTestimonialPage from '@/components/sections/About/ClientTestimonialPage';
 
 const ClientTestimonial = () => {
   return (
-    <div>ClientTestimonial</div>
+    <>
+     <ClientTestimonialPage />
+    </>
   )
 }
 
