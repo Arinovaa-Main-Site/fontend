@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail, Quote, Sparkles, Star } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import founder from "@/assets/images/founder.png";
+import founder from "@/assets/images/founder.jpeg";
 import cto from "@/assets/images/cto.jpeg";
 import ganesh from "@/assets/images/ganesh-dev.avif";
 import { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
@@ -90,6 +90,14 @@ const developers: TeamMember[] = [
     image: ganesh,
     expertise: ["Next.js", "React", "Laravel", "TypeScript", "WordPress"],
   },
+  {
+  name: "Akaksh Shukla",
+  role: "Full Stack Developer",
+  bio: "Full Stack Developer focused on building scalable, high-performance web applications with modern frontend and backend technologies.",
+  experience: "4+ Years",
+  image: ganesh,
+  expertise: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"],
+},
 ];
 
 // TOP LEADERSHIP VOICES.
