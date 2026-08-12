@@ -91,12 +91,12 @@ const developers: TeamMember[] = [
     expertise: ["Next.js", "React", "Laravel", "TypeScript", "WordPress"],
   },
   {
-  name: "Akaksh Shukla",
+  name: "Akash Shukla",
   role: "Full Stack Developer",
   bio: "Full Stack Developer focused on building scalable, high-performance web applications with modern frontend and backend technologies.",
   experience: "4+ Years",
   image: ganesh,
-  expertise: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"],
+  expertise: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "SEO"],
 },
 ];
 
