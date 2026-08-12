@@ -42,7 +42,7 @@ const ClientTestimonialPage = () => {
     <section className="relative overflow-hidden bg-[#07153F] py-24">
       <div className="absolute -left-40 top-0 h-112.5 w-112.5 rounded-full bg-blue-600/20 blur-[180px]" />
 
-      <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-cyan-500/20 blur-[180px]" />
+      <div className="absolute -right-40 bottom-0 h-112.5 w-112.5 rounded-full bg-cyan-500/20 blur-[180px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
@@ -52,7 +52,7 @@ const ClientTestimonialPage = () => {
 
           <h2 className="mt-6 text-5xl font-bold text-white">
             Trusted by Clients
-            <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
               Worldwide
             </span>
           </h2>
