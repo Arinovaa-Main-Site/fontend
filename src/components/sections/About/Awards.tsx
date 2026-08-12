@@ -2,8 +2,7 @@ import {
   Trophy,
   ArrowUpRight,
 } from "lucide-react";
-
-
+// add.
 const stats = [
   {
     id: 1,
