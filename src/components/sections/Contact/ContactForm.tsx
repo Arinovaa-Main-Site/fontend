@@ -117,7 +117,7 @@ const ContactForm = () => {
             <input
               id="phone"
               type="tel"
-              placeholder="+91 98765 43210"
+              placeholder="98765 43210"
               autoComplete="tel"
               {...register("phone")}
               className={`bg-[#141929] border rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-colors ${
