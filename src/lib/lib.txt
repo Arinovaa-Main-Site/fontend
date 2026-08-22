@@ -1,0 +1,7 @@
+─ lib/
+├── axios.ts
+│api/
+│    ├── authApi.ts
+│    ├── contactApi.ts
+│    ├── projectApi.ts
+│    └── ...
