@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#020f34]">
       {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1e40af30,transparent_60%)]" />
+      <div className="absolute inset-0 main-bg" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-16 lg:grid-cols-2">

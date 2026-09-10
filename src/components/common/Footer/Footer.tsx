@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
-import logo from "../../../assets/logo/Arinovaa_logofive.png";
+import logo from "../../../assets/logo/footer-logo.png";
 
 const socialLinks = [
   {
@@ -37,7 +37,7 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0c1635] text-white">
+    <footer className="main-surface text-white">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         {/* Top Section */}
         <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">

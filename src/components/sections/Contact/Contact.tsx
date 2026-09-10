@@ -98,6 +98,10 @@ export default function Contact() {
                     <span className="text-sm text-white font-medium">
                       +91 63772 45313
                     </span>
+
+                      <span className="text-sm text-white font-medium mt-2">
+                      +91 8887173540
+                    </span>
                   </div>
                 </div>
 
@@ -116,7 +120,7 @@ export default function Contact() {
                     </span>
 
                     <span className="text-sm text-white font-medium leading-snug">
-                      Udaipur Rajasthan, India 313002
+                      Udaipur, Rajasthan, India 313002
                     </span>
                   </div>
                 </div>
