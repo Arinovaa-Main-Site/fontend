@@ -103,7 +103,7 @@ const itemVariants = {
 export default function OurDevJourney() {
   return (
     <MotionConfig reducedMotion="user">
-      <section className="overflow-hidden bg-[#020F34]">
+      <section className="overflow-hidden arino-surface">
         {/* ================= DEVELOPMENT JOURNEY ================= */}
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
           {/* Heading */}
