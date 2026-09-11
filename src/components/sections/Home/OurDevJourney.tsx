@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Search,
   Compass,
@@ -5,44 +7,57 @@ import {
   ShieldCheck,
   Rocket,
   Gauge,
+  type LucideIcon,
 } from "lucide-react";
+import { motion, MotionConfig } from "motion/react";
 
-const journeySteps = [
+type JourneyStep = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+const journeySteps: JourneyStep[] = [
   {
     icon: Search,
     title: "01. Discovery",
-    description: "Deep dive into requirements and business objectives.",
+    description:
+      "Deep dive into requirements and business objectives.",
   },
   {
     icon: Compass,
     title: "02. Planning",
-    description: "Blueprint architecture and technology stack selection.",
+    description:
+      "Blueprint architecture and technology stack selection.",
   },
   {
     icon: Code2,
     title: "03. Development",
-    description: "Clean, efficient, and well-documented engineering.",
+    description:
+      "Clean, efficient, and well-documented engineering.",
   },
   {
     icon: ShieldCheck,
     title: "04. Testing",
-    description: "Rigorous QA, security audits, and load testing.",
+    description:
+      "Rigorous QA, security audits, and load testing.",
   },
   {
     icon: Rocket,
     title: "05. Deployment",
-    description: "Automated CI/CD pipelines to live environments.",
+    description:
+      "Automated CI/CD pipelines to live environments.",
   },
   {
     icon: Gauge,
     title: "06. Maintenance",
-    description: "24/7 monitoring and iterative improvements.",
+    description:
+      "24/7 monitoring and iterative improvements.",
   },
 ];
 
-// TECH.
 const technologies = [
-   "React",
+  "React",
   "Next.js",
   "Node.js",
   "PostgreSQL",
@@ -58,69 +73,244 @@ const technologies = [
   "Entity Framework Core",
   "Azure",
   "REST APIs",
-  "JavaScript"
+  "JavaScript",
 ];
+
+const sectionVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
 
 export default function OurDevJourney() {
   return (
-    <section className="bg-[#020f34]">
-      {/* Development Journey */}
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-[#dce4ff] md:text-5xl">
-            Our Development Journey
-          </h2>
+    <MotionConfig reducedMotion="user">
+      <section className="overflow-hidden bg-[#020F34]">
+        {/* ================= DEVELOPMENT JOURNEY ================= */}
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            variants={sectionVariants}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <motion.div variants={itemVariants}>
+              <span className="inline-flex items-center rounded-full border border-blue-400/20 bg-blue-400/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+                Our Process
+              </span>
+            </motion.div>
 
-          <p className="mx-auto mt-5 max-w-2xl text-slate-400">
-            A streamlined, rigorous approach to transforming vision into
-            reality.
-          </p>
-        </div>
+            <motion.h2
+              variants={itemVariants}
+              className="mt-5 text-4xl font-bold tracking-tight text-[#DCE4FF] md:text-5xl lg:text-6xl"
+            >
+              Our Development Journey
+            </motion.h2>
 
-        {/* Timeline */}
-        <div className="relative mt-20">
-          {/* Dashed Line */}
-          <div className="absolute top-8 left-0 hidden w-full lg:block" />
+            <motion.p
+              variants={itemVariants}
+              className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-400 md:text-base"
+            >
+              A streamlined, rigorous approach to transforming your
+              vision into a reliable digital product.
+            </motion.p>
+          </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-6">
-            {journeySteps.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="relative text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/3 shadow-lg">
-                  <Icon className="h-6 w-6 text-[#B7C5FF]" />
-                </div>
+          {/* Timeline */}
+          <div className="relative mt-20">
+            {/* Desktop Connecting Line */}
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none absolute
+                left-[8.33%] right-[8.33%] top-8
+                hidden h-px
+                bg-linear-to-r
+                from-transparent
+                via-blue-400/30
+                to-transparent
+                lg:block
+              "
+            />
 
-                <h3 className="mt-5 text-sm font-semibold text-[#dce4ff]">
-                  {title}
-                </h3>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
+              variants={sectionVariants}
+              className="grid gap-10 md:grid-cols-2 lg:grid-cols-6 lg:gap-6"
+            >
+              {journeySteps.map(
+                ({ icon: Icon, title, description }) => (
+                  <motion.div
+                    key={title}
+                    variants={itemVariants}
+                    className="group relative text-center"
+                  >
+                    {/* Icon */}
+                    <motion.div
+                      whileHover={{
+                        y: -4,
+                        scale: 1.06,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 20,
+                      }}
+                      className="
+                        relative z-10 mx-auto
+                        flex h-16 w-16
+                        items-center justify-center
+                        rounded-2xl
+                        border border-white/10
+                        bg-[#07183D]
+                        shadow-[0_10px_35px_rgba(0,0,0,0.2)]
+                        transition-colors duration-300
+                        group-hover:border-blue-400/30
+                        group-hover:bg-blue-500/10
+                      "
+                    >
+                      <Icon
+                        aria-hidden="true"
+                        className="
+                          h-6 w-6
+                          text-[#B7C5FF]
+                          transition-all duration-300
+                          group-hover:text-[#4D7CFF]
+                          group-hover:drop-shadow-[0_0_8px_currentColor]
+                        "
+                      />
+                    </motion.div>
 
-                <p className="mt-3 text-xs leading-6 text-slate-400">
-                  {description}
-                </p>
-              </div>
-            ))}
+                    {/* Content */}
+                    <h3 className="mt-5 text-sm font-semibold text-[#DCE4FF]">
+                      {title}
+                    </h3>
+
+                    <p className="mt-3 text-xs leading-6 text-slate-400">
+                      {description}
+                    </p>
+                  </motion.div>
+                )
+              )}
+            </motion.div>
           </div>
         </div>
-      </div>
 
-      {/* Tech Stack Section */}
-      <div className="border-t border-white/5 bg-white/3">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-          <h3 className="text-center text-3xl font-bold text-[#dce4ff]">
-            Powered by the Modern Stack
-          </h3>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            {technologies.map((tech) => (
-              <div
-                key={tech}
-                className="flex h-16 min-w-27.5 items-center justify-center rounded-xl border border-white/10 bg-[#08142f] px-5 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-blue-500/30 hover:text-white"
+        {/* ================= TECH STACK ================= */}
+        <div className="border-t border-white/5 bg-white/2.5">
+          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              variants={sectionVariants}
+              className="text-center"
+            >
+              <motion.span
+                variants={itemVariants}
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300"
               >
-                {tech}
-              </div>
-            ))}
+                Technology
+              </motion.span>
+
+              <motion.h3
+                variants={itemVariants}
+                className="mt-3 text-3xl font-bold tracking-tight text-[#DCE4FF] md:text-4xl"
+              >
+                Powered by the Modern Stack
+              </motion.h3>
+
+              <motion.p
+                variants={itemVariants}
+                className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400"
+              >
+                Modern, scalable technologies selected to build
+                secure and high-performance digital products.
+              </motion.p>
+            </motion.div>
+
+            {/* Technologies */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.1,
+              }}
+              variants={sectionVariants}
+              className="
+                mx-auto mt-12
+                flex max-w-6xl
+                flex-wrap items-center
+                justify-center gap-3
+              "
+            >
+              {technologies.map((tech) => (
+                <motion.div
+                  key={tech}
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -3,
+                    scale: 1.025,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeOut",
+                  }}
+                  className="
+                    flex min-h-14
+                    items-center justify-center
+                    rounded-xl
+                    border border-white/10
+                    bg-[#07183D]
+                    px-5
+                    text-sm font-medium
+                    text-slate-300
+                    shadow-sm
+                    transition-colors duration-300
+                    hover:border-blue-400/30
+                    hover:bg-blue-500/6
+                    hover:text-white
+                  "
+                >
+                  {tech}
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MotionConfig>
   );
 }
