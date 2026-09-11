@@ -1,425 +1,354 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, Mail, Quote, Sparkles, Star } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import founder from "@/assets/images/founder.jpeg";
-import cto from "@/assets/images/cto.jpeg";
-import ganesh from "@/assets/images/ganesh-dev.avif";
-import { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
+import { ArrowUpRight, Sparkles, Star } from "lucide-react";
 import { FaCalendarAlt } from "react-icons/fa";
+import { motion, MotionConfig } from "motion/react";
 
-// STATES DATA.
-const stats: Stat[] = [
-  {
-    value: "10+",
-    label: "Projects Delivered",
-  },
-  {
-    value: "3+",
-    label: "Global Clients",
-  },
-  {
-    value: "4+",
-    label: "Technology Experts",
-  },
-  {
-    value: "98%",
-    label: "Client Retention",
-  },
-];
+import {
+  developers,
+  leadership,
+  LeadershipCard,
+  QuoteCard,
+  quotes,
+  Reveal,
+  SectionHeading,
+  stagger,
+  stats,
+  DeveloperRow,
+} from "./CoreTeamParts";
 
-// FOUNDERS AND CO-FOUNDERS.
-const teamMembers: TeamMember[] = [
-  {
-    name: "Dravinanshu Mishra",
-    role: "Founder & Chairman",
-    bio: "Visionary entrepreneur focused on building scalable digital products and empowering businesses through innovative technology.",
-    experience: "3+ Years",
-    image: founder,
-    linkedin: "https://www.linkedin.com/in/dravinanshu-mishra-0909b430b",
-    github: "https://github.com/dravinanshuMishra",
-    email: "mailto:info@arinovaa.com",
-    expertise: [
-      "Product Strategy",
-      "Full Stack Development",
-      "AI Solutions",
-      "Cloud Architecture",
-    ],
-  },
-  {
-    name: "Biplab Biswas",
-    role: "Co-Founder & CEO",
-    bio: "Driving business growth through strategic partnerships, enterprise transformation, and customer-centric innovation.",
-    experience: "3+ Years",
-    image: ganesh,
-    linkedin: "#",
-    email: "mailto:info@arinovaa.com",
-    expertise: [
-      "Business Strategy",
-      "Leadership",
-      "Operations",
-      "Enterprise Sales",
-    ],
-  },
-  {
-    name: "Prashant Sharma",
-    role: "Co-Founder & CTO",
-    bio: "Technology architect passionate about designing secure, scalable, and future-ready enterprise platforms.",
-    experience: "20+ Years",
-    image: cto,
-    linkedin: "http://www.linkedin.com/in/prashant-sharma-ab9b9a30",
-    github: "#",
-    email: "mailto:info@arinovaa.com",
-    expertise: [
-      "Software Architecture",
-      ".NET",
-      "Cloud Infrastructure",
-      "Engineering Leadership",
-      "DBMS"
-    ],
-  },
-];
-
-// OUR CORE DEVELOPERS TEAMS.
-const developers: TeamMember[] = [
-  {
-    name: "Ganesh Menaria",
-    role: "Senior Full Stack Developer",
-    bio: "Expert in building enterprise-grade web applications using React, Next.js, Node.js, and Laravel.",
-    experience: "15+ Years",
-    image: ganesh,
-    expertise: ["Next.js", "React", "Laravel", "TypeScript", "WordPress"],
-  },
-  {
-  name: "Akash Shukla",
-  role: "Full Stack Developer",
-  bio: "Full Stack Developer focused on building scalable, high-performance web applications with modern frontend and backend technologies.",
-  experience: "4+ Years",
-  image: ganesh,
-  expertise: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "SEO"],
-},
-];
-
-// TOP LEADERSHIP VOICES.
-const leadershipQuotes: QuoteType[] = [
-  {
-    quote:
-      "Arinovaa is a name inspired by the ideas of Innovation, the Future, and Growth. It represents our commitment to creating forward-thinking digital solutions that help businesses evolve, scale, and stay ahead in a rapidly changing world.",
-    name: "Dravinanshu Mishra",
-    designation: "Founder & Chairman",
-    image: founder,
-  },
-  {
-    quote:
-      "Success comes from combining innovation, execution, and trust. That's the culture we build every day.",
-    name: "Biplab Biswas",
-    designation: "Co-Founder & CEO",
-    image: ganesh,
-  },
-  {
-    quote:
-      "Our greatest measure of success is our clients' satisfaction. We are committed to going above and beyond to ensure customer satisfaction at every opportunity, because their success is our success.",
-    name: "Prashant Sharma",
-    designation: "Co-Founder & CTO",
-    image: cto,
-  },
-];
-
-const CoreTeam = () => {
+function SystemVisual() {
   return (
-    <>
-      <section className="relative overflow-hidden bg-[#020B2D] py-28 text-white">
-        <div className="absolute left-0 top-0 h-112.5 w-112.5 rounded-full bg-blue-600/10 blur-[160px]" />
-        <div className="absolute right-0 bottom-0 h-100 w-100 rounded-full bg-sky-500/10 blur-[160px]" />
-        <div className="relative mx-auto max-w-7xl px-6">
-          {/* Header */}
-          <div className="mx-auto max-w-4xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-2 text-sm text-blue-300">
-              <Sparkles size={16} />
-              Leadership Team
-            </span>
+    <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+      <div className="absolute inset-0 rounded-[40px] border border-blue-500/10" />
+      <div className="absolute inset-4 rounded-[34px] border border-white/[0.05]" />
 
-            <h2 className="mt-8 text-5xl font-bold leading-tight">
-              Meet The People Behind
-              <span className="block text-[#0E6AFA]">Arinovaa Labs</span>
-            </h2>
+      <div className="absolute left-1/2 top-1/2 size-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[100px]" />
 
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
-              Our team combines engineering excellence, strategic thinking, and
-              innovation to deliver scalable digital products for startups,
-              enterprises, and global organizations.
+      <div className="absolute inset-8 overflow-hidden rounded-[30px] border border-white/10 bg-[#050D25]">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px)",
+            backgroundSize: "46px 46px",
+          }}
+        />
+
+        <div className="absolute left-6 top-6">
+          <p className="text-[10px] font-semibold tracking-[0.25em] text-blue-400">
+            ARINOVAA / SYSTEM
+          </p>
+          <p className="mt-1 text-[10px] text-slate-600">
+            People · Technology · Impact
+          </p>
+        </div>
+
+        <span className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-400">
+          01 / 03
+        </span>
+
+        <div className="absolute left-1/2 top-1/2 size-[310px] -translate-x-1/2 -translate-y-1/2 sm:size-[350px]">
+          <div className="absolute inset-0 rounded-full border border-blue-400/20 [transform:rotateX(68deg)_rotateZ(-20deg)]" />
+
+          <div className="absolute inset-[35px] rounded-full border border-blue-400/30 [transform:rotateX(68deg)_rotateZ(35deg)]" />
+
+          <div className="absolute inset-[55px] rounded-full border border-cyan-400/20 [transform:rotateY(68deg)_rotateZ(-20deg)]" />
+
+          <motion.div
+            animate={{
+              scale: [1, 1.04, 1],
+              opacity: [0.92, 1, 0.92],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute left-1/2 top-1/2 size-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/30 bg-[radial-gradient(circle_at_35%_30%,#2563EB,#0B2B73_38%,#020817_75%)] shadow-[0_0_70px_rgba(37,99,235,.35)] sm:size-[180px]"
+          >
+            <div className="absolute inset-[12%] rounded-full border border-blue-300/15" />
+            <div className="absolute inset-[25%] rounded-full border border-blue-300/10" />
+
+            <div className="absolute left-1/2 top-0 h-full w-px bg-blue-300/10" />
+            <div className="absolute left-0 top-1/2 h-px w-full bg-blue-300/10" />
+
+            <div className="absolute inset-0 grid place-items-center">
+              <span className="size-3 rounded-full bg-blue-300 shadow-[0_0_25px_8px_rgba(96,165,250,.35)]" />
+            </div>
+          </motion.div>
+
+          <motion.span
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute left-[7%] top-[45%] size-3 rounded-full bg-blue-400 shadow-[0_0_18px_5px_rgba(59,130,246,.35)]"
+          />
+
+          <motion.span
+            animate={{ rotate: [45, 135, 45] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute right-[8%] top-[27%] size-4 rounded-[4px] border border-blue-300 bg-blue-500/30"
+          />
+
+          <motion.span
+            animate={{ y: [0, 7, 0] }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-[12%] right-[22%] size-2.5 rounded-full bg-cyan-300"
+          />
+        </div>
+
+        <div className="absolute bottom-7 left-7 max-w-[190px]">
+          <p className="text-[9px] uppercase tracking-[0.25em] text-slate-600">
+            Our Philosophy
+          </p>
+
+          <p className="mt-2 text-sm leading-6 text-slate-300">
+            Engineering ideas into meaningful digital experiences.
+          </p>
+        </div>
+
+        <div className="absolute bottom-7 right-7 text-right">
+          <p className="text-xs font-semibold tracking-[0.2em] text-blue-400">
+            ARINOVAA LABS
+          </p>
+
+          <p className="mt-1 text-[8px] uppercase tracking-widest text-slate-600">
+            Technology for a better tomorrow
+          </p>
+        </div>
+      </div>
+
+      <div className="absolute bottom-7 left-0 rounded-2xl border border-white/10 bg-[#08112F]/90 px-4 py-3 backdrop-blur-xl">
+        <div className="flex items-center gap-3">
+          <span className="size-2 rounded-full bg-emerald-400" />
+
+          <div>
+            <p className="text-[9px] uppercase tracking-widest text-slate-600">
+              Status
+            </p>
+
+            <p className="text-xs font-semibold text-slate-300">
+              Building The Future
             </p>
           </div>
-
-          {/* ================= Statistics ================= */}
-          <div className="mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((item) => (
-              <div
-                key={item.label}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#0E6AFA]/40 hover:bg-white/10"
-              >
-                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#0E6AFA]/10 blur-3xl transition-all duration-500 group-hover:scale-150" />
-
-                <h3 className="relative text-5xl font-bold text-[#0E6AFA]">
-                  {item.value}
-                </h3>
-
-                <p className="relative mt-4 text-sm uppercase tracking-wider text-slate-400">
-                  {item.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* ================= Leadership ================= */}
-          <div className="mt-32">
-            <div className="mb-14 text-center">
-              <h3 className="text-4xl font-bold">Leadership Team</h3>
-
-              <p className="mx-auto mt-5 max-w-3xl text-slate-400">
-                Meet the leaders driving innovation, engineering excellence, and
-                long-term product vision at Arinovaa Labs.
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {teamMembers.map((member) => (
-                <article
-                  key={member.name}
-                  className="group overflow-hidden rounded-[30px] border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] transition-all duration-500 hover:-translate-y-3 hover:border-[#0E6AFA]/40"
-                >
-                  {/* Image */}
-
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={600}
-                      height={700}
-                      className="h-105 w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
-
-                    <div className="absolute inset-0 bg-linear-to-t from-[#020B2D] via-transparent to-transparent" />
-
-                    <span className="absolute left-5 top-5 rounded-full bg-[#0E6AFA] px-4 py-2 text-xs font-semibold">
-                      {member.experience}
-                    </span>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-7">
-                    <h3 className="text-2xl font-bold">{member.name}</h3>
-
-                    <p className="mt-2 font-medium text-[#0E6AFA]">
-                      {member.role}
-                    </p>
-
-                    <p className="mt-5 leading-7 text-slate-400">
-                      {member.bio}
-                    </p>
-
-                    {/* Expertise */}
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {member.expertise.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-[#0E6AFA]/20 bg-[#0E6AFA]/10 px-3 py-1 text-xs font-medium text-blue-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Social */}
-
-                    <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                      <div className="flex gap-3">
-                        <a
-                          href={member.linkedin || "#"}
-                          target="_blank"
-                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
-                        >
-                          <FaLinkedinIn size={18} />
-                        </a>
-
-                        <a
-                          target="_blank"
-                          href={member.github || "#"}
-                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
-                        >
-                          <FaGithub size={18} />
-                        </a>
-
-                        <Link
-                          href={member.email || "#"}
-                          className="rounded-xl border border-white/10 p-2 transition hover:border-[#0E6AFA] hover:bg-[#0E6AFA]/10"
-                        >
-                          <Mail size={18} />
-                        </Link>
-                      </div>
-
-                      <Link
-                        href="/contact"
-                        className="flex items-center gap-2 text-sm font-semibold text-[#0E6AFA]"
-                      >
-                        Connect
-                        <ArrowRight
-                          size={16}
-                          className="transition group-hover:translate-x-1"
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-          
-          {/* ================= OUR Developers ================= */}
-          <div className="mt-32">
-            <div className="mb-14 text-center">
-              <span className="rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
-                Engineering Excellence
-              </span>
-
-              <h3 className="mt-6 text-4xl font-bold">
-                Meet Our Development Team
-              </h3>
-
-              <p className="mx-auto mt-5 max-w-3xl text-slate-400">
-                Behind every successful product is a passionate team of
-                engineers, designers and architects committed to delivering
-                exceptional digital experiences.
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-              {developers.map((member) => (
-                <article
-                  key={member.name}
-                  className="group overflow-hidden rounded-[30px] border border-white/10 bg-[#08112F]/80 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 hover:border-[#0E6AFA]/40"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={500}
-                      height={600}
-                      className="h-95 w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-[#020B2D] to-transparent" />
-                  </div>
-                  <div className="p-7">
-                    <h4 className="text-2xl font-bold">{member.name}</h4>
-                    <p className="mt-2 text-[#0E6AFA]">{member.role}</p>
-                    <p className="mt-5 leading-7 text-slate-400">
-                      {member.bio}
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {member.expertise.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full bg-[#0E6AFA]/10 px-3 py-1 text-xs text-blue-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          {/* ================= Leadership Quotes Founder & Co-Founders ================= */}
-          <div className="mt-32">
-            <div className="mb-14 text-center">
-              <h3 className="text-4xl font-bold">Voices of Leadership</h3>
-            </div>
-            <div className="grid gap-8 lg:grid-cols-3">
-              {leadershipQuotes.map((item) => (
-                <div
-                  key={item.name}
-                  className="rounded-[30px] border border-white/10 bg-linear-to-br from-[#08112F] to-[#10204F] p-8"
-                >
-                  <Quote className="text-[#0E6AFA]" size={42} />
-                  <p className="mt-8 min-h-42.5 italic leading-8 text-slate-300">
-                    {item.quote}
-                  </p>
-                  <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={60}
-                      height={60}
-                      className="h-16 w-16 rounded-full object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold">{item.name}</h4>
-
-                      <p className="text-sm text-slate-400">
-                        {item.designation}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ================= CTA Last one================= */}
-          <div className="relative mt-32 overflow-hidden rounded-[40px] border border-white/10 bg-linear-to-r from-[#08112F] via-[#10204F] to-[#08112F] px-8 py-24 text-center">
-            <div className="absolute left-0 top-0 h-60 w-60 rounded-full bg-blue-500/10 blur-[140px]" />
-            <div className="absolute bottom-0 right-0 h-60 w-60 rounded-full bg-sky-500/10 blur-[140px]" />
-            <div className="relative z-10 mx-auto max-w-4xl">
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 px-5 py-2 text-sm text-blue-300">
-                <Star size={16} className="fill-current" />
-                {"Let's"} Build Together
-              </span>
-
-              <h3 className="mt-8 text-5xl font-bold leading-tight">
-                Ready To Build
-                <span className="block text-[#0E6AFA]">
-                  Your Next Big Product?
-                </span>
-              </h3>
-
-              <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-400">
-                Whether {"you're"} launching a startup, scaling an enterprise,
-                or building an AI-powered platform, our team is ready to help
-                you turn ideas into successful products.
-              </p>
-
-              <div className="mt-12 flex flex-wrap justify-center gap-5">
-               
-                <Link
-                  href="https://cal.id/arinovaa-labs"
-                  className="rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10 flex items-center gap-2"
-                >
-                  {/* Schedule a Call */}
-                  <FaCalendarAlt />
-                  {"Schedule a Call at Your Convenience"}
-                </Link>
-
-                 <Link
-                  href="/contact"
-                  className="rounded-xl bg-[#0E6AFA] px-8 py-4 font-semibold transition hover:bg-blue-700"
-                >
-                  Start Your Project
-                </Link>
-
-                <p className="text-sm mt-10 text-slate-400 font-semibold flex items-center gap-2">
-                  <FaCalendarAlt />
-                  Choose a date and time that works best for you. Our live scheduling calendar will instantly confirm your meeting.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
-};
+}
 
-export default CoreTeam;
+export default function CoreTeam() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <main className="relative min-h-screen overflow-hidden arino-section text-white">
+        {/* Background */}
+        <div className="pointer-events-none absolute -left-40 -top-40 size-[500px] rounded-full bg-blue-600/[0.08] blur-[140px]" />
+
+        <div className="pointer-events-none absolute -right-40 top-[40%] size-[450px] rounded-full bg-cyan-500/[0.06] blur-[140px]" />
+
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          {/* Hero */}
+          <section className="grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
+            <Reveal>
+              <div>
+                <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
+                  <span className="h-px w-9 bg-blue-500" />
+                  <Sparkles size={13} />
+                  The People Behind Arinovaa
+                </div>
+
+                <h1 className="text-5xl font-bold leading-[0.96] tracking-[-0.045em] sm:text-6xl lg:text-[78px]">
+                  Built by
+                  <span className="block text-blue-500">people.</span>
+                  Driven by
+                  <span className="block text-slate-500">purpose.</span>
+                </h1>
+
+                <p className="mt-8 max-w-xl text-base leading-8 text-slate-400 sm:text-lg">
+                  Meet the minds combining engineering excellence, strategic
+                  thinking, and innovation to build technology that moves
+                  businesses forward.
+                </p>
+
+                <Link
+                  href="#leadership"
+                  className="group mt-10 inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-sm font-semibold transition-all hover:bg-blue-500"
+                >
+                  Meet Our Leadership
+                  <ArrowUpRight
+                    size={17}
+                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <SystemVisual />
+            </Reveal>
+          </section>
+
+          {/* Stats */}
+          <Reveal className="mt-24 lg:mt-32">
+            <section className="border-y border-white/10 py-7">
+              <div className="grid grid-cols-2 lg:grid-cols-4">
+                {stats.map((item) => (
+                  <div
+                    key={item.label}
+                    className="border-white/10 px-5 py-5 even:border-l sm:px-8 lg:border-l first:lg:border-l-0"
+                  >
+                    <p className="text-3xl font-bold sm:text-4xl">
+                      {item.value}
+                    </p>
+
+                    <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600 sm:text-xs">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          {/* Leadership */}
+          <section id="leadership" className="mt-28 lg:mt-40">
+            <SectionHeading
+              number="01"
+              label="Leadership"
+              heading="The minds"
+              muted="behind the mission."
+              description="Strategic leadership and deep technical expertise working together to create meaningful digital products."
+            />
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="space-y-5"
+            >
+              {leadership.map((member, index) => (
+                <LeadershipCard
+                  key={member.name}
+                  member={member}
+                  index={index}
+                />
+              ))}
+            </motion.div>
+          </section>
+
+          {/* Engineering */}
+          <section className="mt-28 lg:mt-40">
+            <SectionHeading
+              number="02"
+              label="Engineering"
+              heading="The people who"
+              muted="build it."
+            />
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="divide-y divide-white/10 border-y border-white/10"
+            >
+              {developers.map((member, index) => (
+                <DeveloperRow key={member.name} member={member} index={index} />
+              ))}
+            </motion.div>
+          </section>
+
+          {/* Quotes */}
+          <section className="mt-28 lg:mt-40">
+            <SectionHeading
+              number="03"
+              label="Perspective"
+              heading="Voices of"
+              muted="leadership."
+            />
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="grid gap-5 lg:grid-cols-3"
+            >
+              {quotes.map((item) => (
+                <QuoteCard key={item.name} item={item} />
+              ))}
+            </motion.div>
+          </section>
+
+          {/* CTA */}
+          <Reveal className="mt-28 lg:mt-40">
+            <section className="relative overflow-hidden border border-blue-500/20 bg-blue-600 px-6 py-16 sm:px-10 lg:py-24">
+              <div className="absolute -right-24 -top-32 size-96 rounded-full border-[70px] border-white/10" />
+
+              <div className="relative flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
+                <div>
+                  <div className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-100">
+                    <Star size={14} className="fill-current" />
+                    {"Let's"} Build Together
+                  </div>
+
+                  <h2 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                    Have an ambitious idea?
+                    <span className="block text-blue-100">
+                      {"Let's"} make it real.
+                    </span>
+                  </h2>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                  <a
+                    href="https://cal.id/arinovaa-labs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-sm font-semibold text-[#020817] transition-transform hover:-translate-y-0.5"
+                  >
+                    <FaCalendarAlt />
+                    Schedule a Call
+                  </a>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 border border-white/30 px-6 py-3.5 text-sm font-semibold hover:bg-white/10"
+                  >
+                    Start Your Project
+                    <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </Reveal>
+        </div>
+      </main>
+    </MotionConfig>
+  );
+}
