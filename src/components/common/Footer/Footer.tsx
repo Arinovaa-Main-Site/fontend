@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
-import logo from "../../../assets/logo/footer-logo.png";
+import logo from "../../../assets/logo/arinovaa-logo-footer-transparent.png";
 
 const socialLinks = [
   {

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import logo from "../../../assets/logo/arinovaa-logos.png";
+import logo from "../../../assets/logo/arinovaa-logo-header-transparent.png";
 
 type NavChild = {
   label: string;
@@ -54,7 +54,7 @@ export default function Header() {
   return (
    <>
       <header className="sticky top-0 z-50 w-full border-b border-[#E2E8F0] bg-white/95 shadow-sm backdrop-blur-xl">
-  <div className="mx-auto flex h-[82px] max-w-7xl items-center justify-between px-4 md:px-8">
+  <div className="mx-auto flex h-20.5 max-w-7xl items-center justify-between px-4 md:px-8">
 
     {/* Logo */}
     <Link
@@ -66,7 +66,7 @@ export default function Header() {
         alt="Arinovaa Labs"
         width={200}
         height={80}
-        className="h-auto w-[170px] md:w-[185px]"
+        className="h-auto w-42.5 md:w-46.25"
         priority
       />
     </Link>
@@ -100,7 +100,7 @@ export default function Header() {
 
                 {/* Active Indicator */}
                 <span
-                  className={`absolute -bottom-[1px] left-0 h-[2px] rounded-full bg-[#2563EB] transition-all duration-300 ${
+                  className={`absolute -bottom-px left-0 h-0.5 rounded-full bg-[#2563EB] transition-all duration-300 ${
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
@@ -161,7 +161,7 @@ export default function Header() {
 
             {/* Active Indicator */}
             <span
-              className={`absolute -bottom-[1px] left-0 h-[2px] rounded-full bg-[#2563EB] transition-all duration-300 ${
+              className={`absolute -bottom-px left-0 h-0.5 rounded-full bg-[#2563EB] transition-all duration-300 ${
                 isActive ? "w-full" : "w-0 hover:w-full"
               }`}
             />
@@ -227,7 +227,7 @@ export default function Header() {
   <div
     className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
       isOpen
-        ? "max-h-[700px] border-t border-[#E2E8F0] opacity-100"
+        ? "max-h-175 border-t border-[#E2E8F0] opacity-100"
         : "max-h-0 opacity-0"
     }`}
   >

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import logo from "@/assets/logo/arinovaa-logos.png";
+import logo from "@/assets/logo/Arinovaa-mobile-logo-white.png";
 import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "sonner";
 
