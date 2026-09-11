@@ -4,6 +4,7 @@ import "./globals.css";
 import logo from "@/assets/logo/Arinovaa-mobile-logo-white.png";
 import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "sonner";
+import FloatingActions from "@/components/common/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+
+         {/* <ScrollToTop /> */}
+          <FloatingActions />
 
         <Toaster
           position="top-right"
