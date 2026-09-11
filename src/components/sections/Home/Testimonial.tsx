@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Testimonial = () => {
   return (
-    <section className="bg-[#020B2D] py-16">
+    <section className="arino-bg py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* CTA Section */}
         <div className="relative mt-24 overflow-hidden rounded-4xl border border-white/10 bg-linear-to-br from-[#121E48] to-[#0A1434] px-8 py-20 text-center">
