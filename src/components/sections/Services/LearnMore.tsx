@@ -22,7 +22,7 @@ export default function LearnMore({ slug }: { slug: string }) {
 
   return (
     <>
-      <section className="bg-[#020F34] py-24">
+      <section className="arino-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           {/* Back */}
           <button

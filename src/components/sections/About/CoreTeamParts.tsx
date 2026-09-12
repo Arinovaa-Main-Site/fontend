@@ -6,8 +6,8 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { motion, type Variants } from "motion/react";
 
 import founder from "@/assets/images/founder.jpeg";
-import cto from "@/assets/images/cto.jpeg";
-import ganesh from "@/assets/images/ganesh-dev.avif";
+import cto from "@/assets/images/ceo.jpeg";
+import ganesh from "@/assets/images/profile-image.png";
 
 import type { QuoteType, Stat, TeamMember } from "@/types/coreTeamTypes";
 
@@ -21,11 +21,11 @@ export const stats: Stat[] = [
 export const leadership: TeamMember[] = [
   {
     name: "Dravinanshu Mishra",
-    role: "Founder & Chairman, CVO",
+    role: "Founder, Chairman & CVO",
     bio: "Visionary entrepreneur focused on building scalable digital products and empowering businesses through innovative technology.",
     experience: "3+ Years",
     image: founder,
-    linkedin: "https://www.linkedin.com/in/dravinanshu-mishra-0909b430b",
+    linkedin: "https://www.linkedin.com/in/dravinanshu-mishra-0909b430",
     github: "https://github.com/dravinanshuMishra",
     email: "mailto:info@arinovaa.com",
     expertise: [
@@ -35,6 +35,7 @@ export const leadership: TeamMember[] = [
       "Cloud Architecture",
     ],
   },
+
   {
     name: "Prashant Sharma",
     role: "Co-Founder & CEO",
@@ -52,6 +53,7 @@ export const leadership: TeamMember[] = [
       "DBMS",
     ],
   },
+
   {
     name: "Biplab Biswas",
     role: "Chief Technology Officer (CTO)",
@@ -183,7 +185,7 @@ export function SectionHeading({
         </div>
 
         {description && (
-          <p className="mt-5 max-w-md text-sm leading-7 text-slate-500 md:mt-0">
+          <p className="mt-5 max-w-md text-sm leading-7 text-slate-300 md:mt-0">
             {description}
           </p>
         )}
@@ -223,86 +225,121 @@ export function LeadershipCard({
   member: TeamMember;
   index: number;
 }) {
+  const position = String(index + 1).padStart(2, "0");
+
   return (
     <motion.article
       variants={fadeUp}
-      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] transition-all duration-300 hover:border-blue-500/30 hover:bg-white/[0.04]"
+      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/2.5 transition-colors duration-300 hover:border-blue-500/30 hover:bg-white/4"
     >
-      <div className="grid lg:grid-cols-[280px_1fr]">
-        <div className="relative h-72 overflow-hidden lg:h-full">
+      <div className="grid lg:grid-cols-[280px_minmax(0,1fr)]">
+        {/* Profile Image */}
+        <div className="relative h-72 overflow-hidden lg:h-full lg:min-h-80">
           <Image
             src={member.image}
             alt={`${member.name} — ${member.role}`}
             width={600}
             height={700}
-            sizes="(max-width: 1024px) 100vw, 280px"
-            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+            sizes="(max-width: 1023px) 100vw, 280px"
+            className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07102D] to-transparent lg:bg-gradient-to-r" />
+          {/* Image overlay */}
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-transparent" />
 
-          <span className="absolute left-5 top-5 text-xs font-bold tracking-widest text-white/50">
-            {String(index + 1).padStart(2, "0")}
+          {/* Member Number */}
+          <span
+            aria-hidden="true"
+            className="absolute left-5 top-5 font-mono text-xs font-bold tracking-[0.2em] text-white/50"
+          >
+            {position}
           </span>
         </div>
 
-        <div className="flex flex-col justify-between p-7 sm:p-9">
+        {/* Content */}
+        <div className="flex min-w-0 flex-col justify-between p-6 sm:p-8 lg:p-9">
           <div>
+            {/* Header */}
             <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm font-semibold text-blue-400">
                   {member.role}
                 </p>
 
-                <h3 className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl">
+                <h3 className="mt-1 text-2xl font-bold tracking-tight text-white sm:text-3xl">
                   {member.name}
                 </h3>
               </div>
 
-              <span className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-500">
+              {/* Experience */}
+              <span className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-500">
                 {member.experience}
               </span>
             </div>
 
+            {/* Bio */}
             <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400">
               {member.bio}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {member.expertise.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 px-3 py-1.5 text-[11px] text-slate-500 transition-colors group-hover:border-blue-500/20 group-hover:text-blue-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            {/* Expertise */}
+            {member.expertise.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {member.expertise.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-white/10 px-3 py-1.5 text-[11px] font-medium text-slate-500 transition-colors duration-300 group-hover:border-blue-500/20 group-hover:text-blue-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
-            <div className="flex gap-2">
-              <Social href={member.linkedin} label={`${member.name} LinkedIn`}>
-                <FaLinkedinIn size={14} />
-              </Social>
+          {/* Footer */}
+          <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+            {/* Social Links */}
+            <div className="flex items-center gap-2">
+              {member.linkedin && (
+                <Social
+                  href={member.linkedin}
+                  label={`${member.name} LinkedIn`}
+                >
+                  <FaLinkedinIn size={14} />
+                </Social>
+              )}
 
-              <Social href={member.github} label={`${member.name} GitHub`}>
-                <FaGithub size={14} />
-              </Social>
+              {member.github && (
+                <Social
+                  href={member.github}
+                  label={`${member.name} GitHub`}
+                >
+                  <FaGithub size={14} />
+                </Social>
+              )}
 
-              <Social href={member.email} label={`Email ${member.name}`}>
-                <Mail size={14} />
-              </Social>
+              {member.email && (
+                <Social
+                  href={member.email}
+                  label={`Email ${member.name}`}
+                >
+                  <Mail size={14} />
+                </Social>
+              )}
             </div>
 
+            {/* Contact */}
             <a
               href="/contact"
-              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400"
+              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 transition-colors duration-200 hover:text-blue-300"
             >
-              Connect
+              <span>Connect</span>
+
               <ArrowUpRight
                 size={15}
-                className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
               />
             </a>
           </div>
@@ -365,7 +402,7 @@ export function QuoteCard({ item }: { item: QuoteType }) {
   return (
     <motion.article
       variants={fadeUp}
-      className="flex min-h-[350px] flex-col justify-between border border-white/10 bg-white/[0.025] p-7 transition-colors hover:border-blue-500/20 sm:p-8"
+      className="flex min-h-87.5 flex-col justify-between border border-white/10 bg-white/2.5 p-7 transition-colors hover:border-blue-500/20 sm:p-8"
     >
       <div>
         <Quote size={32} className="text-blue-500" />

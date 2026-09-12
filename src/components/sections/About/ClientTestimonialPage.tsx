@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Quote, Star } from "lucide-react";
-import ganesh from "@/assets/images/ganesh-dev.avif";
+import ganesh from "@/assets/images/profile-image.png";
+
 export const testimonials = [
   {
     id: 1,
@@ -39,7 +40,7 @@ export const testimonials = [
 
 const ClientTestimonialPage = () => {
   return (
-    <section className="relative overflow-hidden bg-[#07153F] py-24">
+    <section className="relative overflow-hidden arino-surface py-24">
       <div className="absolute -left-40 top-0 h-112.5 w-112.5 rounded-full bg-blue-600/20 blur-[180px]" />
 
       <div className="absolute -right-40 bottom-0 h-112.5 w-112.5 rounded-full bg-cyan-500/20 blur-[180px]" />
