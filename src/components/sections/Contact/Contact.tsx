@@ -14,7 +14,7 @@ import ContactForm from "../Contact/ContactForm";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-[#171F33] text-white font-sans">
+    <div className="min-h-screen arino-surface text-white font-sans">
       <div className="max-w-7xl mx-auto px-6 py-10 md:py-14">
 
         {/* =========================

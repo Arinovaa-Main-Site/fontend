@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowUpRight, Sparkles, Star } from "lucide-react";
 import { FaCalendarAlt } from "react-icons/fa";
 import { motion, MotionConfig } from "motion/react";
-
 import {
   developers,
   leadership,
@@ -17,148 +16,19 @@ import {
   stats,
   DeveloperRow,
 } from "./CoreTeamParts";
+import SystemVisual from "@/components/shared/SystemVisual";
+import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 
-function SystemVisual() {
-  return (
-    <div className="relative mx-auto aspect-square w-full max-w-[560px]">
-      <div className="absolute inset-0 rounded-[40px] border border-blue-500/10" />
-      <div className="absolute inset-4 rounded-[34px] border border-white/[0.05]" />
 
-      <div className="absolute left-1/2 top-1/2 size-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[100px]" />
-
-      <div className="absolute inset-8 overflow-hidden rounded-[30px] border border-white/10 bg-[#050D25]">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px)",
-            backgroundSize: "46px 46px",
-          }}
-        />
-
-        <div className="absolute left-6 top-6">
-          <p className="text-[10px] font-semibold tracking-[0.25em] text-blue-400">
-            ARINOVAA / SYSTEM
-          </p>
-          <p className="mt-1 text-[10px] text-slate-600">
-            People · Technology · Impact
-          </p>
-        </div>
-
-        <span className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-400">
-          01 / 03
-        </span>
-
-        <div className="absolute left-1/2 top-1/2 size-[310px] -translate-x-1/2 -translate-y-1/2 sm:size-[350px]">
-          <div className="absolute inset-0 rounded-full border border-blue-400/20 [transform:rotateX(68deg)_rotateZ(-20deg)]" />
-
-          <div className="absolute inset-[35px] rounded-full border border-blue-400/30 [transform:rotateX(68deg)_rotateZ(35deg)]" />
-
-          <div className="absolute inset-[55px] rounded-full border border-cyan-400/20 [transform:rotateY(68deg)_rotateZ(-20deg)]" />
-
-          <motion.div
-            animate={{
-              scale: [1, 1.04, 1],
-              opacity: [0.92, 1, 0.92],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute left-1/2 top-1/2 size-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/30 bg-[radial-gradient(circle_at_35%_30%,#2563EB,#0B2B73_38%,#020817_75%)] shadow-[0_0_70px_rgba(37,99,235,.35)] sm:size-[180px]"
-          >
-            <div className="absolute inset-[12%] rounded-full border border-blue-300/15" />
-            <div className="absolute inset-[25%] rounded-full border border-blue-300/10" />
-
-            <div className="absolute left-1/2 top-0 h-full w-px bg-blue-300/10" />
-            <div className="absolute left-0 top-1/2 h-px w-full bg-blue-300/10" />
-
-            <div className="absolute inset-0 grid place-items-center">
-              <span className="size-3 rounded-full bg-blue-300 shadow-[0_0_25px_8px_rgba(96,165,250,.35)]" />
-            </div>
-          </motion.div>
-
-          <motion.span
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute left-[7%] top-[45%] size-3 rounded-full bg-blue-400 shadow-[0_0_18px_5px_rgba(59,130,246,.35)]"
-          />
-
-          <motion.span
-            animate={{ rotate: [45, 135, 45] }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute right-[8%] top-[27%] size-4 rounded-[4px] border border-blue-300 bg-blue-500/30"
-          />
-
-          <motion.span
-            animate={{ y: [0, 7, 0] }}
-            transition={{
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute bottom-[12%] right-[22%] size-2.5 rounded-full bg-cyan-300"
-          />
-        </div>
-
-        <div className="absolute bottom-7 left-7 max-w-[190px]">
-          <p className="text-[9px] uppercase tracking-[0.25em] text-slate-600">
-            Our Philosophy
-          </p>
-
-          <p className="mt-2 text-sm leading-6 text-slate-300">
-            Engineering ideas into meaningful digital experiences.
-          </p>
-        </div>
-
-        <div className="absolute bottom-7 right-7 text-right">
-          <p className="text-xs font-semibold tracking-[0.2em] text-blue-400">
-            ARINOVAA LABS
-          </p>
-
-          <p className="mt-1 text-[8px] uppercase tracking-widest text-slate-600">
-            Technology for a better tomorrow
-          </p>
-        </div>
-      </div>
-
-      <div className="absolute bottom-7 left-0 rounded-2xl border border-white/10 bg-[#08112F]/90 px-4 py-3 backdrop-blur-xl">
-        <div className="flex items-center gap-3">
-          <span className="size-2 rounded-full bg-emerald-400" />
-
-          <div>
-            <p className="text-[9px] uppercase tracking-widest text-slate-600">
-              Status
-            </p>
-
-            <p className="text-xs font-semibold text-slate-300">
-              Building The Future
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function CoreTeam() {
   return (
     <MotionConfig reducedMotion="user">
-      <main className="relative min-h-screen overflow-hidden arino-section text-white">
+      <main className="relative min-h-screen overflow-hidden arino-hero text-white">
         {/* Background */}
-        <div className="pointer-events-none absolute -left-40 -top-40 size-[500px] rounded-full bg-blue-600/[0.08] blur-[140px]" />
+        <div className="pointer-events-none absolute -left-40 -top-40 size-125 rounded-full bg-blue-600/8 blur-[140px]" />
 
-        <div className="pointer-events-none absolute -right-40 top-[40%] size-[450px] rounded-full bg-cyan-500/[0.06] blur-[140px]" />
+        <div className="pointer-events-none absolute -right-40 top-[40%] size-112.5 rounded-full bg-cyan-500/6 blur-[140px]" />
 
         <div
           aria-hidden
@@ -214,7 +84,7 @@ export default function CoreTeam() {
 
           {/* Stats */}
           <Reveal className="mt-24 lg:mt-32">
-            <section className="border-y border-white/10 py-7">
+            <section className="border-y border-white/10 arino-surface py-7">
               <div className="grid grid-cols-2 lg:grid-cols-4">
                 {stats.map((item) => (
                   <div
@@ -222,7 +92,8 @@ export default function CoreTeam() {
                     className="border-white/10 px-5 py-5 even:border-l sm:px-8 lg:border-l first:lg:border-l-0"
                   >
                     <p className="text-3xl font-bold sm:text-4xl">
-                      {item.value}
+                      {/* {item.value} */}
+                       <AnimatedCounter value={item.value} />
                     </p>
 
                     <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600 sm:text-xs">
@@ -308,7 +179,7 @@ export default function CoreTeam() {
           {/* CTA */}
           <Reveal className="mt-28 lg:mt-40">
             <section className="relative overflow-hidden border border-blue-500/20 bg-blue-600 px-6 py-16 sm:px-10 lg:py-24">
-              <div className="absolute -right-24 -top-32 size-96 rounded-full border-[70px] border-white/10" />
+              <div className="absolute -right-24 -top-32 size-96 rounded-full border-70 border-white/10" />
 
               <div className="relative flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
                 <div>

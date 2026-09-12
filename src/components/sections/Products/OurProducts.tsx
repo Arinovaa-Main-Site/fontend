@@ -348,7 +348,7 @@ const OurProducts = () => {
   );
 
   return (
-    <main className="min-h-screen bg-[#0c1635] text-white">
+    <main className="min-h-screen arino-surface text-white">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div

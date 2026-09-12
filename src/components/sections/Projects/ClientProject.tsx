@@ -464,7 +464,7 @@ const ProjectCard = memo(
         exit="exit"
         whileHover={{ y: -4 }}
         transition={{ duration: 0.2 }}
-        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#101a3b] hover:border-blue-500/20 hover:bg-[#111d43]"
+        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] arino-surface hover:border-blue-500/20 hover:bg-[#111d43]"
       >
         {/* Image / Icon */}
         <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-white/[0.06] bg-[#0d1734]">

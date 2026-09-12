@@ -111,7 +111,7 @@ const stats = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[#020f34] text-white font-sans">
+    <div className="min-h-screen arino-surface text-white font-sans">
       {/* ── Hero Section ── */}
       <section className="px-6 pt-20 pb-24 max-w-7xl mx-auto ">
         <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-6">
