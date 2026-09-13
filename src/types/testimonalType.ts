@@ -1,3 +1,4 @@
+// testimonoialType.ts
 export interface TestimonialItem {
   quote: string;
   name: string;
